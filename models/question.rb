@@ -1,3 +1,4 @@
 class Question < ActiveRecord::Base
-    belong_to :option
+    belongs_to :option
+    belongs_to :practice
 end

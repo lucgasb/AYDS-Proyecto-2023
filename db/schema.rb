@@ -10,14 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_12_201405) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_12_233602) do
   create_table "answers", force: :cascade do |t|
     t.string "answers"
+  end
+
+  create_table "exams", force: :cascade do |t|
+    t.integer "score"
+    t.integer "lifes"
+    t.integer "time"
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.string "option"
   end
 
   create_table "practices", force: :cascade do |t|
     t.string "theoric"
     t.string "category"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "question"
+    t.integer "option_id"
+    t.integer "practice_id"
+    t.index ["option_id"], name: "index_questions_on_option_id", unique: true
+    t.index ["practice_id"], name: "index_questions_on_practice_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
