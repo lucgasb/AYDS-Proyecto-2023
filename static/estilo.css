@@ -20,15 +20,15 @@ body {
     margin: 0 auto;
     max-width: 480px;
     padding: 40px;
-    border: 1px solid #ccc;
+    border: 1px solid #73c5eb;
     border-radius: 5px;
   }
   
   button[type="submit"] {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
+    background-color: #73c5eb;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -36,5 +36,5 @@ body {
   }
   
   button[type="submit"]:hover {
-    background-color: #555;
+    background-color: #ecd904;
   }
