@@ -17,7 +17,7 @@ class App < Sinatra::Application
 
   set :root,  File.dirname(__FILE__)
   set :views, Proc.new { File.join(root, 'views') }
-  
+  set :public_folder, File.join(root, 'static')
   configure :production, :development do
     enable :logging
 
@@ -37,9 +37,16 @@ class App < Sinatra::Application
   get '/' do
     erb :index
   end
-  post '/' do	
+  post '/game' do	
     User.find_or_create_by(email: params[:email], password: params[:password])     
-    "Usuario creado!"
-  end  
+    erb :index2
+  end
+
+  post '/game/exam' do
+    "Modo Examen"
+  end
+  post '/game/practice' do
+    "Modo Practica"
+  end   
 end
 
