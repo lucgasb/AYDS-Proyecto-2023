@@ -6,6 +6,9 @@ require_relative 'models/user'
 require_relative 'models/question'
 require_relative 'models/option'
 require_relative 'models/exam'
+require_relative 'models/practice'
+require_relative 'models/answer'
+
 
 class App < Sinatra::Application
   def initialize(app = nil)
