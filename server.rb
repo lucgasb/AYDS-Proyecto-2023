@@ -14,6 +14,9 @@ class App < Sinatra::Application
   def initialize(app = nil)
     super()
   end
+
+  set :root,  File.dirname(__FILE__)
+  set :views, Proc.new { File.join(root, 'views') }
   
   configure :production, :development do
     enable :logging
@@ -32,7 +35,11 @@ class App < Sinatra::Application
   end
 
   get '/' do
-    'Welcome'
+    erb :index
   end
+  post '/' do	
+    User.find_or_create_by(email: params[:email], password: params[:password])     
+    "Usuario creado!"
+  end  
 end
 
