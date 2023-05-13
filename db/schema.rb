@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_12_233602) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_13_215958) do
   create_table "answers", force: :cascade do |t|
     t.string "answers"
   end
@@ -23,6 +23,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_12_233602) do
 
   create_table "options", force: :cascade do |t|
     t.string "option"
+    t.string "option1"
+    t.string "option2"
+    t.string "correcta"
   end
 
   create_table "practices", force: :cascade do |t|
