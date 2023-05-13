@@ -43,7 +43,7 @@ class App < Sinatra::Application
   end
 
   post '/game/exam' do
-    "Modo Examen"
+    erb :index3
   end
   post '/game/practice' do
     "Modo Practica"
