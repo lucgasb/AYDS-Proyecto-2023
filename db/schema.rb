@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_13_215958) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_13_225132) do
   create_table "answers", force: :cascade do |t|
     t.string "answers"
   end
@@ -41,9 +41,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_215958) do
     t.index ["practice_id"], name: "index_questions_on_practice_id", unique: true
   end
 
+  create_table "questions_exams", id: false, force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "exam_id"
+    t.index ["exam_id"], name: "index_questions_exams_on_exam_id"
+    t.index ["question_id"], name: "index_questions_exams_on_question_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password"
+  end
+
+  create_table "users_exams", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "exam_id"
+    t.index ["exam_id"], name: "index_users_exams_on_exam_id"
+    t.index ["user_id"], name: "index_users_exams_on_user_id"
   end
 
 end
