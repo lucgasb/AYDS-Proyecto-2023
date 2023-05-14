@@ -45,8 +45,13 @@ class App < Sinatra::Application
   post '/game/exam' do
     erb :index3
   end
+
   post '/game/practice' do
     "Modo Practica"
-  end   
+  end 
+
+  post '/game/exam/play' do
+    "*ACA TENDRIAN QUE MOSTRARSE LAS PREGUNTAS CON SUS RESPECTIVAS RESPUESTAS*"  
+  end  
 end
 

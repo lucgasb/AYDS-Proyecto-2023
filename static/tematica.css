@@ -1,9 +1,9 @@
 body {
-    background-color: rgb(29, 26, 211);
+    background-color: bisque;
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
-    color: #ffed2b;
+    color: #333;
     margin: 0;
     padding: 0;
   }
@@ -21,7 +21,7 @@ body {
     margin: 0 auto;
     max-width: 480px;
     padding: 40px;
-    border: 1px solid rgb(29, 26, 211);
+    border: 1px solid bisque;
     border-radius: 5px;
   }
   
@@ -30,7 +30,7 @@ body {
     width: 100%;
     margin-bottom: 20px;
     padding: 10px;
-    border: 1px solid #ffed2b;
+    border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
   }
@@ -38,8 +38,8 @@ body {
   button[type="submit"] {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ffed2b;
-    color: rgb(29, 26, 211);
+    background-color: #333;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;

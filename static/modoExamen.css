@@ -1,36 +1,25 @@
-body {
-	background-color: #F2F2F2;
-	font-family: sans-serif;
-	font-size: 16px;
-	color: #333;
-	margin: 0;
-	padding: 0;
-}
-
+/* Estilos para el título */
 h1 {
+	background-color: bisque;
+	font-size: 3em;
 	text-align: center;
-	margin-top: 40px;
-}
-
-form {
-	width: 400px;
+	margin-top: 50px;
+  }
+  
+  /* Estilos para el botón */
+  button {
+	display: block;
 	margin: 0 auto;
-	padding: 20px;
-	background-color: #FFFFFF;
-	border-radius: 5px;
-	box-shadow: 0 0 5px #666;
-}
-
-button[type="submit"] {
-	background-color: #4CAF50;
-	color: #FFF;
+	font-size: 1.5em;
 	padding: 10px 20px;
-	font-size: 16px;
+	background-color: #3498db;
+	color: #fff;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-}
-
-button[type="submit"]:hover {
-	background-color: #3E8E41;
-}
+	transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+	background-color: #2980b9;
+  }
