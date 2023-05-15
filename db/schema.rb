@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_13_234000) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_15_220429) do
   create_table "answers", force: :cascade do |t|
     t.string "answers"
     t.integer "user_id"
@@ -55,6 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_234000) do
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password"
+    t.integer "total_score", default: 0
   end
 
   create_table "users_exams", id: false, force: :cascade do |t|
