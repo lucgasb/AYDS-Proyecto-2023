@@ -7,7 +7,6 @@ require_relative 'models/question'
 require_relative 'models/option'
 require_relative 'models/exam'
 require_relative 'models/practice'
-require_relative 'models/answer'
 
 
 class App < Sinatra::Application
@@ -51,7 +50,16 @@ class App < Sinatra::Application
   end 
 
   post '/game/exam/play' do
-    "*ACA TENDRIAN QUE MOSTRARSE LAS PREGUNTAS CON SUS RESPECTIVAS RESPUESTAS*"  
+    @pregunta = Question.first
+    erb :index4
+    if respuesta == pregunta.correcta
+      @es_correcta = true
+    else
+      @es_correcta = false
+    end
+  
+    erb :respuesta
+
   end  
 end
 

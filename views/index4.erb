@@ -1,0 +1,16 @@
+<html>
+<head>
+  <title>Pregunta</title>
+</head>
+<body>
+  <h1>Pregunta</h1>
+  <form action="/game/exam/play" method="post">
+    <p><%= @pregunta.question %></p>
+    <input type="radio" name="opcion" value="<%= @pregunta.option3 %>"><br>
+    <input type="radio" name="opcion" value="<%= @pregunta.option2 %>"><br>
+    <input type="radio" name="opcion" value="<%= @pregunta.option1 %>"><br>
+    <input type="radio" name="opcion" value="<%= @pregunta.correcta %>"> <br>
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>
