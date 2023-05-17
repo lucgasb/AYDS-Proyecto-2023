@@ -4,12 +4,12 @@ Question.destroy_all
 User.destroy_all
 
 question1 = Question.create(question: "¿Qué significa esta señal?")
-question1.image_url = "images/cruce.jpg"
+question1.image_url = '/images/preg1.jpg'
 question1.save
 Option.create(option: "Cementerio.", option2: "Incorporacion de caminos.", correct: "Cruce de caminos.", question: question1)
 
 question2 = Question.create(question: "¿Qué significa esta señal?")
-question2.image_url = nil
+question2.image_url = '/images/cruce.jpg'
 question2.save
 Option.create(option: "Cruce de caminos",  option2: "Proximidad de cementerio.", correct: "Cruce ferroviario.", question: question2)
 
@@ -30,7 +30,7 @@ question5.save
 Option.create(option: "Es indistinto, siempre que miren a ambos lados antes de hacerlo.", option2: "En coincidencia con las paradas de transporte.", correct: "Por la esquina, por la prolongación longitudinal de la vereda sobre la calle.", question: question5)
 
 question6 = Question.create(question: "¿Qué significa esta señal?")
-question6.image_url = nil
+question6.image_url = '/images/tren.jpg'
 question6.save
 Option.create(option: "Circulación exclusiva (ferrocarril).", option2: "Estación ferroviaria.", correct: "Cruce ferroviario.", question: question6)
 
@@ -45,7 +45,7 @@ question8.save
 Option.create(option: "Verdadero.", option2: nil, correct: "Falso.", question: question8)
 
 question9 = Question.create(question: "¿Qué significa esta señal?")
-question9.image_url = nil
+question9.image_url = '/images/estrechamiento.jpg'
 question9.save
 Option.create(option: "Estrechamiento (en una mano).",  option2: "Calzada dividida.", correct: "Estrechamiento (en las dos manos).", question: question9)
 

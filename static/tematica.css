@@ -1,6 +1,10 @@
 body {
-  background-color: #f4f4f4;
-  font-family: Arial, sans-serif;
+  background-image: url("../images/fondo1.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: 'poppins' ,sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #333;
@@ -9,9 +13,13 @@ body {
 }
 
 h1 {
+  color: #000000;
   font-size: 32px;
   text-align: center;
   margin-bottom: 40px;
+  justify-content: center;
+  display: flex;
+  padding: 10px 0 10px 0;
 }
 
 form {
@@ -39,7 +47,7 @@ input {
 button[type="submit"] {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #333;
+  background-color: #ee0e0e;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -49,4 +57,16 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #555;
+}
+
+.input-field .input{
+  height: 45px;
+  width: 87%;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 15px;
+  padding: 0 0 0 45px;
+  background: rgba(255,255,255,0.1);
+  outline: none;
 }

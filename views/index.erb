@@ -1,14 +1,24 @@
 <html>
     <head>
         <title>Aprende con Fitito</title>
-        <link  rel="stylesheet" type="text/css" href="<%= url('/tematica.css') %>" />
+        <link rel="stylesheet" type="text/css" href="<%= url('/tematica.css?v=1') %>" />
     </head>
-    <body>    
-    <h1>Bienvenido a Aprende con Fitito</h1>
-        <form action="/game" method = "post">
-            <input type="text" name="email" placeholder="Dirección de correo eléctronico" required></input>
-            <input type="password" name="password" placeholder="contraseña" required></input>
-            <button type="submit" value="LogIn">Ingresar</button>
-        </form>
+    <body>
+        <div class="box">    
+            <div class="container">
+                <h1>Bienvenido a Aprende con Fitito</h1>
+                    <form action="/game" method = "post">
+                        <div class="input-field">
+                            <input type="text" name="email" placeholder="Dirección de correo eléctronico" required></input>
+                            <i class='bx bx-user' ></i>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" name="password" placeholder="Contraseña" required></input>
+                            <i class='bx bx-lock-alt'></i>
+                        </div>
+                            <button type="submit" value="LogIn">Ingresar</button>
+                    </form>
+            </div>
+        </div>
     </body>
 </html>
