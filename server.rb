@@ -46,7 +46,7 @@ class App < Sinatra::Application
   end
 
   post '/game/practice' do
-    "Modo Practica"
+    erb :practica
   end 
 
   post '/game/exam/play' do
@@ -54,4 +54,12 @@ class App < Sinatra::Application
     @respuesta = params[:respuesta]  
     erb :quiz
   end
+
+  post '/game/exam/play/correct' do
+    "La respuesta es correcta"
+  end
+  
+  post '/game/exam/play/incorrect' do
+   "La respuesta es incorrecta" 
+  end   
 end

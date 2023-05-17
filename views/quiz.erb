@@ -7,19 +7,20 @@
   <h1>Pregunta:</h1>
   <h1><p><%= @pregunta.question %></p></h1>
   <img src="/images/<%= @pregunta.image_url %>">
-  <form action="/game/exam/play" method="post">
+  <form action="/game/exam/play/incorrect" method="post">
   <label>  
-    <input type="radio" name="respuesta" value="<%= @pregunta.option.option %>" required><%= @pregunta.option.option %></input>
-  </label>  
-  <label>  
-    <input type="radio" name="respuesta" value="<%= @pregunta.option.option2 %>" required><%= @pregunta.option.option2 %></input>
+    <button type="submit" name="respuesta" value="<%= @pregunta.option.option %>" required><%= @pregunta.option.option %></button>
   </label>
+  </form>  
+  <form action="/game/exam/play/incorrect" method="post">
   <label>  
-    <input type="radio" name="respuesta" value="<%= @pregunta.option.correct %>" required><%= @pregunta.option.correct %></input> 
-  </label>  
-    </form>
-    <form action"/game/exam/play/answer" method="post">
-      <button type="submit" name="Enviar">Enviar</button>
-    </form> 
+    <button type="submit" name="respuesta" value="<%= @pregunta.option.option2 %>" required><%= @pregunta.option.option2 %></button>
+  </label>
+  </form>
+  <form action="/game/exam/play/correct" method="post">
+  <label>  
+    <button type="submit" name="respuesta" value="<%= @pregunta.option.correct %>" required><%= @pregunta.option.correct %></button> 
+  </label>
+  </form>  
 </body>
 </html>

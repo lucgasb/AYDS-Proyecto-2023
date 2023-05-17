@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #333;
+  color: #000000;
   margin: 0;
   padding: 0;
 }
@@ -21,17 +21,17 @@ form {
   margin: 0 auto;
   max-width: 480px;
   padding: 40px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: bisque;
+  border: 1px solid bisque;
   border-radius: 5px;
 }
 
-input[type="radio"] {
+button {
   display: inline-block;
   width: auto;
   margin: 0 10px 0 0; /* Agregado margen derecho */
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 50px 100px;
+  border: 1px solid bisque;
   border-radius: 5px;
   box-sizing: border-box;
 }
@@ -44,8 +44,8 @@ label {
 
 button[type="submit"] {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #333;
+  padding: 50px 100px;
+  background-color: #3498db;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -54,5 +54,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #555;
+  background-color: #ecd904;
 }
