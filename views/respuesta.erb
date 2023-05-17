@@ -3,12 +3,16 @@
     <title>Respuesta</title>
   </head>
     <body>
+      <form action="/game/exam/play/answer" method="post">
       <h1>Respuesta</h1>
       <% if @es_correcta %>
         <p>¡Respuesta correcta!</p>
       <% else %>
         <p>Respuesta incorrecta.</p>
       <% end %>
-      <button type="submit" value="continue">Continuar</button>
+      </form>
+      <form action="/game/exam/play" method="post">
+        button type="submit" value="continue">Continuar</button>
+      </form>
     </body>
 </html>

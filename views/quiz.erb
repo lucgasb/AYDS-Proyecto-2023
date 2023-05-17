@@ -10,8 +10,10 @@
   <form action="/game/exam/play" method="post">
     <input type="radio" name="respuesta" value="<%= @pregunta.option.option %>" required><%= @pregunta.option.option %></input>
     <input type="radio" name="respuesta" value="<%= @pregunta.option.option2 %>" required><%= @pregunta.option.option2 %></input>
-    <input type="radio" name="respuesta" value="<%= @pregunta.option.correct %>" required><%= @pregunta.option.correct %></input>
-    <button type="submit" name="Enviar">Enviar</button>  
-  </form>
+    <input type="radio" name="respuesta" value="<%= @pregunta.option.correct %>" required><%= @pregunta.option.correct %></input> 
+    </form>
+    <form action"/game/exam/play/answer" method="post">
+      <button type="submit" name="Continuar">Enviar</button>
+    </form> 
 </body>
 </html>

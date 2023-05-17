@@ -40,7 +40,7 @@ class App < Sinatra::Application
     User.find_or_create_by(email: params[:email], password: params[:password])     
     erb :index2
   end
-  
+
   post '/game/exam' do
     erb :index3
   end
@@ -54,5 +54,17 @@ class App < Sinatra::Application
     @respuesta = params[:respuesta]  
     erb :quiz
   end
-end
 
+  post '/game/exam/play/answer' do
+    if params[:respuesta.value] == @pregunta.correct
+      @es_correcta = true
+    else
+      @es_correcta = false
+    end
+    erb :respuesta
+  end  
+end
+  
+
+
+ 
