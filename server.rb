@@ -54,17 +54,4 @@ class App < Sinatra::Application
     @respuesta = params[:respuesta]  
     erb :quiz
   end
-
-  post '/game/exam/play/answer' do
-    if params[:respuesta.value] == @pregunta.correct
-      @es_correcta = true
-    else
-      @es_correcta = false
-    end
-    erb :respuesta
-  end  
 end
-  
-
-
- 
