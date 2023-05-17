@@ -11,14 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_05_16_211014) do
-  create_table "answers", force: :cascade do |t|
-    t.string "answers"
-    t.integer "user_id"
-    t.integer "exam_id"
-    t.index ["exam_id"], name: "index_answers_on_exam_id"
-    t.index ["user_id"], name: "index_answers_on_user_id"
-  end
-
   create_table "exams", force: :cascade do |t|
     t.integer "score"
     t.integer "lifes"
@@ -27,9 +19,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_16_211014) do
 
   create_table "options", force: :cascade do |t|
     t.string "option"
-    t.string "option1"
     t.string "option2"
-    t.string "correcta"
+    t.string "correct"
   end
 
   create_table "practices", force: :cascade do |t|

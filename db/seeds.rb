@@ -4,7 +4,7 @@ Question.destroy_all
 User.destroy_all
 
 question1 = Question.create(question: "¿Qué significa esta señal?")
-question1.image_url = nil
+question1.image_url = "images/cruce.jpg"
 question1.save
 Option.create(option: "Cementerio.", option2: "Incorporacion de caminos.", correct: "Cruce de caminos.", question: question1)
 
