@@ -13,6 +13,10 @@ class App < Sinatra::Application
   def initialize(app = nil)
     super()
   end
+  
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
 
   set :root,  File.dirname(__FILE__)
   set :views, Proc.new { File.join(root, 'views') }
@@ -50,14 +54,26 @@ class App < Sinatra::Application
   end 
 
   post '/game/exam/play' do
-    @pregunta = Question.first
-    @respuesta = params[:respuesta]  
-    erb :quiz
+    @preguntas = Question.all.shuffle
+    @contador ||= 0  # Inicializa el contador solo si es nulo
+    if @contador < @preguntas.length
+      @pregunta = @preguntas[@contador]
+      @contador += 1
+      @examen = Exam.find_or_create_by(score: 0, lifes: 3, user_id: current_user.id)  
+    end if current_user
+    erb :quiz, locals: { examen: @examen }
   end
-
-  post '/game/exam/play/correct' do
-    "La respuesta es correcta"
-  end
+  
+  
+    post '/game/exam/play/correct' do
+      if params[:examen_id].present?
+        @examen = Exam.find(params[:examen_id])
+        @examen.score += 3
+        @examen.save
+      end  
+        erb :respuestaCorrecta  
+    end
+  
   
   post '/game/exam/play/incorrect' do
    "La respuesta es incorrecta" 

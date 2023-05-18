@@ -5,22 +5,24 @@
 </head>
 <body>
   <h1>Pregunta:</h1>
-  <h1><p><%= @pregunta.question %></p></h1>
-  <img src="/images/<%= @pregunta.image_url %>">
+  <h1><p><%= @preguntas[@contador].question %></p></h1>
   <form action="/game/exam/play/incorrect" method="post">
   <label>  
-    <button type="submit" name="respuesta" value="<%= @pregunta.option.option %>" required><%= @pregunta.option.option %></button>
+    <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.option %>" required><%= @preguntas[@contador].option.option %></button>
   </label>
   </form>  
   <form action="/game/exam/play/incorrect" method="post">
   <label>  
-    <button type="submit" name="respuesta" value="<%= @pregunta.option.option2 %>" required><%= @pregunta.option.option2 %></button>
+    <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.option2 %>" required><%= @preguntas[@contador].option.option2 %></button>
   </label>
   </form>
   <form action="/game/exam/play/correct" method="post">
-  <label>  
-    <button type="submit" name="respuesta" value="<%= @pregunta.option.correct %>" required><%= @pregunta.option.correct %></button> 
+  <label>
+    <input type="hidden" name="examen_id" value="<%= examen&.id %>">
+    <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.correct %>" required><%= @preguntas[@contador].option.correct %></button> 
   </label>
-  </form>  
+  </form>
+  <h2>Pts: <%= @examen&.score %> </h2> 
+  <h2>Life: <%= @examen&.lifes %> </h2> 
 </body>
 </html>
