@@ -5,7 +5,7 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   font-family: 'poppins' ,sans-serif;
-  font-size: 16px;
+  font-size: 30px;
   line-height: 1.5;
   color: #333;
   margin: 0;
@@ -14,7 +14,7 @@ body {
 
 h1 {
   color: #000000;
-  font-size: 32px;
+  font-size: 50px;
   text-align: center;
   margin-bottom: 40px;
   justify-content: center;
@@ -31,7 +31,7 @@ form {
   padding: 40px;
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 30px;
 }
 
 input {
@@ -40,19 +40,21 @@ input {
   margin-bottom: 20px;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   box-sizing: border-box;
+  font-size: 20px;
 }
 
 button[type="submit"] {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #5caf48;
+  background-color: #45da37;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  font-size: 19px;
 }
 
 button[type="submit"]:hover {
@@ -70,3 +72,13 @@ button[type="submit"]:hover {
   background: rgba(255,255,255,0.1);
   outline: none;
 }
+
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+
+
