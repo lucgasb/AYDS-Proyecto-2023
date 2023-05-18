@@ -1,5 +1,9 @@
 body {
-  background-color: bisque;
+  background-image: url("https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/public/images/Cars%20test.gif");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
@@ -27,8 +31,6 @@ form {
   margin: 0 auto;
   max-width: 480px;
   padding: 40px;
-  background-color: bisque;
-  border: 1px solid bisque;
   border-radius: 5px;
 }
 

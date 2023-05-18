@@ -3,9 +3,14 @@ body {
     font-family: Arial, sans-serif;
     font-size: 2.2em;
     line-height: 1.5;
-    color: #000000;
+    color: white;
     margin: 0;
     padding: 0;
+    background-image: url("https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/public/images/Crazy%20roads.gif");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
   }
   
   h1 {
@@ -24,14 +29,13 @@ body {
     margin: 0 auto;
     max-width: 480px;
     padding: 40px;
-    border: 1px solid bisque;
     border-radius: 5px;
   }
   
   button[type="submit"] {
     display: inline-block;
     padding: 50px 100px;
-    background-color: #77eb73;
+    background-color: #73a7eb;
     color: #ffffff;
     border: none;
     border-radius: 20px;
@@ -41,5 +45,5 @@ body {
   }
   
   button[type="submit"]:hover {
-    background-color: #fffc2e;
+    background-color: #fff12e;
   }

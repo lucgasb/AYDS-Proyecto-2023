@@ -1,4 +1,9 @@
 body {
+  background-image: url("https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/public/images/Autonomous%20Intersection.gif");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   font-family: 'poppins' ,sans-serif;
   font-size: 30px;
   line-height: 1.5;
@@ -43,7 +48,7 @@ input {
 button[type="submit"] {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #45da37;
+  background-color: #d758e7;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -53,7 +58,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #555;
+  background-color: #601074;
 }
 
 .input-field .input{
