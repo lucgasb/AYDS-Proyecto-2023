@@ -1,9 +1,4 @@
 body {
-  background: url('../images/fondo1.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
   font-family: 'poppins' ,sans-serif;
   font-size: 30px;
   line-height: 1.5;
