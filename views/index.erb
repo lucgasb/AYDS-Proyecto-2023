@@ -1,12 +1,22 @@
 <html>
     <head>
         <title>Aprende con Fitito</title>
-        <link rel="stylesheet" type="text/css" href="<%= url('/tematica.css?v=1') %>" />
+        <link rel="stylesheet" type="text/css" href="tematica.css" />
     </head>
+
     <body>
+    <style>
+    body {
+      background-image: url("https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/images/fondo1.jpeghttps://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/images/fondo1.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
         <div class="box">    
             <div class="container">
                 <h1>Bienvenido a Aprende con Fitito</h1>
+
                     <form action="/game" method = "post">
                         <div class="input-field">
                             <input type="text" name="email" placeholder="Dirección de correo eléctronico" required></input>

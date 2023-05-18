@@ -1,5 +1,5 @@
 body {
-  background-image: url("../images/fondo1.jpeg");
+  background: url('../images/fondo1.jpeg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -47,7 +47,7 @@ input {
 button[type="submit"] {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #ee0e0e;
+  background-color: #5caf48;
   color: #fff;
   border: none;
   border-radius: 5px;

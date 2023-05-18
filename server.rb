@@ -51,13 +51,29 @@ class App < Sinatra::Application
 
   post '/game/practice' do
     erb :practica
-  end 
+  end
+  
+  post '/game/practice/play' do
+    @preguntas = Question.all.shuffle
+    @contador ||= 0
+    if @contador < @preguntas.length
+      @contador += 1
+    end
+    erb :practicaQuiz  
+  end
+
+  post '/game/practice/play/correct' do
+    erb :practicaCorrecta
+  end  
+
+  post '/game/practice/play/incorrect' do 
+    erb :practicaIncorrecta
+  end
 
   post '/game/exam/play' do
     @preguntas = Question.all.shuffle
-    @contador ||= 0  # Inicializa el contador solo si es nulo
+    @contador ||= 0 
     if @contador < @preguntas.length
-      @pregunta = @preguntas[@contador]
       @contador += 1
       @examen = Exam.find_or_create_by(score: 0, lifes: 3, user_id: current_user.id)  
     end if current_user
@@ -73,9 +89,4 @@ class App < Sinatra::Application
       end  
         erb :respuestaCorrecta  
     end
-  
-  
-  post '/game/exam/play/incorrect' do
-   "La respuesta es incorrecta" 
-  end   
 end

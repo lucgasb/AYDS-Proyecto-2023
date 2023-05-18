@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Modo Practica - En juego</title>
+        <link rel="stylesheet" type="text/css" href="<%= url('/quiz.css') %>">
+    </head>
+    <body>
+        <h1>Pregunta:</h1>
+        <h1><p><%= @preguntas[@contador].question %></p></h1>
+        <form action="/game/practice/play/incorrect" method="post">
+        <label>  
+          <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.option %>" required><%= @preguntas[@contador].option.option %></button>
+        </label>
+        </form>  
+        <form action="/game/practice/play/incorrect" method="post">
+        <label>  
+          <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.option2 %>" required><%= @preguntas[@contador].option.option2 %></button>
+        </label>
+        </form>
+        <form action="/game/practice/play/correct" method="post">
+        <label>
+          <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.correct %>" required><%= @preguntas[@contador].option.correct %></button> 
+        </label>
+        </form>
+    </body>
+</html>
