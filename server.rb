@@ -80,13 +80,21 @@ class App < Sinatra::Application
     erb :quiz, locals: { examen: @examen }
   end
   
-  
-    post '/game/exam/play/correct' do
-      if params[:examen_id].present?
-        @examen = Exam.find(params[:examen_id])
-        @examen.score += 3
-        @examen.save
-      end  
-        erb :respuestaCorrecta  
-    end
+  post '/game/exam/play/correct' do
+    if params[:examen_id].present?
+      @examen = Exam.find(params[:examen_id])
+      @examen.score += 3
+      @examen.save
+    end if current_user  
+      erb :respuestaCorrecta, locals: { examen: @examen }
+  end
+
+  post '/game/exam/play/incorrect' do
+    if params[:examen_id].present?
+    @examen = Exam.find(params[:examen_id])
+    @examen.score -= 2
+    @examen.save
+    end if current_user
+    erb :respuestaIncorrecta, locals: { examen: @examen }
+  end  
 end
