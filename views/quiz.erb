@@ -6,17 +6,17 @@
 <body>
   <h1>Pregunta:</h1>
   <h1><p><%= @preguntas[@contador].question %></p></h1>
-  <form action="/game/exam/play/incorrect" method="post">
+  <form action="/exam/play/incorrect" method="get">
   <label>  
     <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.option %>" required><%= @preguntas[@contador].option.option %></button>
   </label>
   </form>  
-  <form action="/game/exam/play/incorrect" method="post">
+  <form action="/exam/play/incorrect" method="get">
   <label>  
     <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.option2 %>" required><%= @preguntas[@contador].option.option2 %></button>
   </label>
   </form>
-  <form action="/game/exam/play/correct" method="post">
+  <form action="/exam/play/correct" method="get">
   <label>
     <input type="hidden" name="examen_id" value="<%= examen&.id %>">
     <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.correct %>" required><%= @preguntas[@contador].option.correct %></button> 
