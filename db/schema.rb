@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_19_131041) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_31_233815) do
   create_table "exams", force: :cascade do |t|
-    t.integer "score"
-    t.integer "lifes"
-    t.integer "time"
+    t.integer "score", default: 0
+    t.integer "life", default: 3
+    t.integer "time", default: 30
   end
 
   create_table "options", force: :cascade do |t|

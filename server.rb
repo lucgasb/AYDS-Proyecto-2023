@@ -83,9 +83,16 @@ class App < Sinatra::Application
       @contador ||= 0
       if @contador < @preguntas.length
         @contador += 1
-        @examen = Exam.find_or_create_by()
+        @examen = Exam.create
       end
-      erb :quiz, locals: { examen: @examen }
+      erb :quiz, locals: { examen: @examen, contador: @contador }
+  end
+
+  post '/exam/play' do
+    if params[:examen_id].present?
+      @examen = Exam.find(params[:examen_id])
+    end if current_user
+    erb :quiz, locals: { examen: @examen, contador: @contador }
   end
   
   get '/exam/play/correct' do
