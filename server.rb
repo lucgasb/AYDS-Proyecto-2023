@@ -24,7 +24,7 @@ class App < Sinatra::Application
 
   set :root,  File.dirname(__FILE__)
   set :views, Proc.new { File.join(root, 'views') }
-  set :public_folder, File.join(root, 'static')
+  #set :public_folder, File.join(root, 'static')
 
   configure :production, :development do
     enable :logging
@@ -100,7 +100,6 @@ class App < Sinatra::Application
     if @contador < @preguntas.length
       @contador += 1
       @examen = Exam.new()
-      @examen.save
     end
     erb :quiz, locals: { examen: @examen, contador: @contador }
   end
@@ -110,7 +109,7 @@ class App < Sinatra::Application
       @examen = Exam.find(params[:examen_id])
       @examen.score += 10
       @examen.save
-    end if current_user  
+    end   
     erb :respuestaCorrecta, locals: { examen: @examen }
   end
 
@@ -120,7 +119,7 @@ class App < Sinatra::Application
       @examen.score -= 10
       @examen.life -= 1
       @examen.save
-    end if current_user
+    end
     erb :respuestaIncorrecta, locals: { examen: @examen }
   end
 end

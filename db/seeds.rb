@@ -3,18 +3,15 @@ Option.destroy_all
 Question.destroy_all
 User.destroy_all
 
-question1 = Question.create(question: "¿Qué significa esta señal?")
-question1.image_url = 'https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/public/images/preg1.jpg'
+question1 = Question.create(question: "¿Qué significa esta señal?", image_url: 'https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/public/images/preg1.jpg')
 question1.save
 Option.create(option: "Cementerio.", option2: "Incorporacion de caminos.", correct: "Cruce de caminos.", question: question1)
 
-question2 = Question.create(question: "¿Qué significa esta señal?")
-question2.image_url = 'https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/images/cruce.jpg'
+question2 = Question.create(question: "¿Qué significa esta señal?", image_url: 'https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/images/cruce.jpg')
 question2.save
 Option.create(option: "Cruce de caminos",  option2: "Proximidad de cementerio.", correct: "Cruce ferroviario.", question: question2)
 
-question3 = Question.create(question: "¿A qué se denomina incidente de tránsito o incidente vial?")
-question3.image_url = nil
+question3 = Question.create(question: "¿A qué se denomina incidente de tránsito o incidente vial?", image_url: nil)
 question3.save
 Option.create(option: "Hecho, evitable o no, que involucra daños a terceros.", option2: "Hecho impredecible e inevitable en ocasión de circulación en la vía pública.", correct: "Hecho que puede ser evitado, en el cual se produce daño a persona o cosa, en ocasión
 de circulación en la vía pública.", question: question3)
