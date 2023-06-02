@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="<%= url('/tematica.css?v=10') %>" />
+    <title>Registrate</title>  
+  </head>
+  <body>
+  <form action="/register" method = "post">
+  <div class="input-field">
+    <input type="text" name="email" placeholder="Dirección de correo electrónico" required></input>
+    <i class='bx bx-user' ></i>
+  </div>
+  <div class="input-field">
+    <input type="password" name="password" placeholder="Escriba su contraseña" required></input>
+    <i class='bx bx-lock-alt'></i>
+    <input type="password" name="password2" placeholder="Escriba de nuevo su contraseña" required></input>
+  </div>
+    <button type="submit" value="LogIn">Registrarme</button>
+  </form>
+  </body>
+</html>

@@ -9,7 +9,6 @@ require_relative 'models/option'
 require_relative 'models/exam'
 require_relative 'models/practice'
 
-
 class App < Sinatra::Application
   def initialize(app = nil)
     super()
@@ -26,6 +25,7 @@ class App < Sinatra::Application
   set :root,  File.dirname(__FILE__)
   set :views, Proc.new { File.join(root, 'views') }
   set :public_folder, File.join(root, 'static')
+
   configure :production, :development do
     enable :logging
 
@@ -47,10 +47,26 @@ class App < Sinatra::Application
   end
 
   post '/' do
-    user = User.find_or_create_by(email: params[:email])
-    user.update(password: params[:password]) if user.password.nil?
-    session[:user_id] = user.id.to_s
-    erb :index2
+    user = User.find_by(email: params[:email], password: params[:password])
+    if user != nil
+      session[:user_id] = user.id.to_s
+      erb :index2
+    else 
+      redirect '/register'
+    end  
+  end
+  
+  get '/register' do
+    erb :register
+  end
+  
+  post '/register' do
+    if params[:password] == params[:password2]
+      user = User.create(email: params[:email],password: params[:password])
+      redirect '/'
+    else
+      redirect '/register'
+    end     
   end
 
   get '/exam' do
@@ -60,14 +76,14 @@ class App < Sinatra::Application
   get '/practice' do
     erb :practica
   end
-  
+
   get '/practice/play' do
     @preguntas = Question.all.shuffle
     @contador ||= 0
     if @contador < @preguntas.length
       @contador += 1
     end
-    erb :practicaQuiz  
+    erb :practicaQuiz
   end
 
   get '/practice/play/correct' do
@@ -79,19 +95,12 @@ class App < Sinatra::Application
   end
 
   get '/exam/play' do
-      @preguntas = Question.all.shuffle
-      @contador ||= 0
-      if @contador < @preguntas.length
-        @contador += 1
-        @examen = Exam.create
-      end
-      erb :quiz, locals: { examen: @examen, contador: @contador }
-  end
-
-  post '/exam/play' do
-    if params[:examen_id].present?
-      @examen = Exam.find(params[:examen_id])
-    end if current_user
+    @preguntas = Question.all.shuffle
+    @contador ||= 0
+    if @contador < @preguntas.length
+      @contador += 1
+      @examen = Exam.create
+    end
     erb :quiz, locals: { examen: @examen, contador: @contador }
   end
   
@@ -108,9 +117,9 @@ class App < Sinatra::Application
     if params[:examen_id].present?
       @examen = Exam.find(params[:examen_id])
       @examen.score -= 10
-      @examen.lifes -= 1
+      @examen.life -= 1
       @examen.save
     end if current_user
     erb :respuestaIncorrecta, locals: { examen: @examen }
-  end  
+  end
 end
