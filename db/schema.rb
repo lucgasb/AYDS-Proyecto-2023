@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_233815) do
     t.string "question"
     t.integer "option_id"
     t.integer "practice_id"
+    t.string "image_url"
     t.index ["option_id"], name: "index_questions_on_option_id", unique: true
     t.index ["practice_id"], name: "index_questions_on_practice_id", unique: true
   end

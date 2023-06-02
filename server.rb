@@ -99,7 +99,8 @@ class App < Sinatra::Application
     @contador ||= 0
     if @contador < @preguntas.length
       @contador += 1
-      @examen = Exam.create
+      @examen = Exam.new()
+      @examen.save
     end
     erb :quiz, locals: { examen: @examen, contador: @contador }
   end
