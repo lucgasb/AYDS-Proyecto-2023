@@ -19,11 +19,11 @@
   </form>
   <form action="/exam/play/correct" method="get">
   <label>
-    <input type="hidden" name="examen_id" value="<%= examen&.id %>">
+    <input type="hidden" name="id" value="<%= @examen.id %>">
     <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.correct %>" required><%= @preguntas[@contador].option.correct %></button> 
   </label>
   </form>
-  <h2>Puntaje: <%= @examen&.score %> </h2> 
-  <h2>Vidas: <%= @examen&.life %> </h2> 
+  <h2>Puntaje: <%= @examen.score %> </h2> 
+  <h2>Vidas: <%= @examen.life %> </h2> 
 </body>
 </html>

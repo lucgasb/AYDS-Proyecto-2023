@@ -103,10 +103,16 @@ class App < Sinatra::Application
     end
     erb :quiz, locals: { examen: @examen, contador: @contador }
   end
-  
+  post '/exam/play' do
+    @examen = Exam.find_by(id: params[:id])
+    if @examen != nil
+      erb :quiz, locals: {examen: @examen, contador: @contador}
+    end
+  end
+
   get '/exam/play/correct' do
-    if params[:examen_id].present?
-      @examen = Exam.find(params[:examen_id])
+    if params[:id].present?
+      @examen = Exam.find_by(id: params[:id])
       @examen.score += 10
       @examen.save
     end   
@@ -114,8 +120,8 @@ class App < Sinatra::Application
   end
 
   get '/exam/play/incorrect' do
-    if params[:examen_id].present?
-      @examen = Exam.find(params[:examen_id])
+    if params[:id].present?
+      @examen = Exam.find_by(id: params[:id])
       @examen.score -= 10
       @examen.life -= 1
       @examen.save
