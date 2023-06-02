@@ -29,8 +29,8 @@ form {
   margin: 0 auto;
   max-width: 480px;
   padding: 40px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: none;
+  border: none;
   border-radius: 30px;
 }
 
