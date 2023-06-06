@@ -1,29 +1,30 @@
 <html>
 <head> 
-<link rel="stylesheet" type="text/css" href="<%= url('/quiz.css?v=700') %>">
+  <link rel="stylesheet" type="text/css" href="<%= url('/quiz.css?v=700') %>">
   <title>Modo Examen - En juego</title>
 </head>
 <body>
   <h1>Pregunta:</h1>
   <h1><p><%= @preguntas[@contador].question %></p></h1>
-  <img src=<%=  @preguntas[@contador].image_url%>>
+  <img src="<%= @preguntas[@contador].image_url %>">
+  
   <form action="/exam/play/incorrect" method="get">
-  <label>  
+    <input type="hidden" name="id" value="<%= @examen.id %>">
     <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.option %>" required><%= @preguntas[@contador].option.option %></button>
-  </label>
-  </form>  
-  <form action="/exam/play/incorrect" method="get">
-  <label>  
-    <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.option2 %>" required><%= @preguntas[@contador].option.option2 %></button>
-  </label>
   </form>
+  
+  <form action="/exam/play/incorrect" method="get">
+    <input type="hidden" name="id" value="<%= @examen.id %>">
+    <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.option2 %>" required><%= @preguntas[@contador].option.option2 %></button>
+  </form>
+  
   <form action="/exam/play/correct" method="get">
-  <label>
     <input type="hidden" name="id" value="<%= @examen.id %>">
     <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.correct %>" required><%= @preguntas[@contador].option.correct %></button> 
-  </label>
   </form>
+  
   <h2>Puntaje: <%= @examen.score %> </h2> 
   <h2>Vidas: <%= @examen.life %> </h2> 
 </body>
 </html>
+

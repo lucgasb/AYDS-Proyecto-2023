@@ -99,9 +99,10 @@ class App < Sinatra::Application
     @contador ||= 0
     if @contador < @preguntas.length
       @contador += 1
-      @examen = Exam.new()
+      @examen ||= Exam.find_by(id: params[:id]) # Obtener el objeto @examen existente o encontrarlo por ID
+      @examen ||= Exam.create(id: params[:id]) # Crear un nuevo objeto @examen si no existe    end
     end
-    erb :quiz, locals: { examen: @examen, contador: @contador }
+      erb :quiz, locals: { examen: @examen, contador: @contador }
   end
   post '/exam/play' do
     @examen = Exam.find_by(id: params[:id])
@@ -115,11 +116,12 @@ class App < Sinatra::Application
       @examen = Exam.find_by(id: params[:id])
       if @examen
         @examen.score += 10
-        @examen.life -= 1
+        @examen.save
+      else 
+        @examen.score += 100
         @examen.save
       end
     end
-    puts "Ruta '/exam/play/correct' invocada"
 
     erb :respuestaCorrecta, locals: { examen: @examen }
   end
@@ -133,7 +135,6 @@ class App < Sinatra::Application
         @examen.save
       end
     end
-    puts "Ruta '/exam/play/incorrect' invocada"
     erb :respuestaIncorrecta, locals: { examen: @examen }
   end
   
