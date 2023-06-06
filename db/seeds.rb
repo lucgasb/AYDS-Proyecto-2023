@@ -16,8 +16,7 @@ question3.save
 Option.create(option: "Hecho, evitable o no, que involucra daños a terceros.", option2: "Hecho impredecible e inevitable en ocasión de circulación en la vía pública.", correct: "Hecho que puede ser evitado, en el cual se produce daño a persona o cosa, en ocasión
 de circulación en la vía pública.", question: question3)
 
-question4 = Question.create(question: "En esta intersección, ¿quién tiene prioridad de paso?")
-question4.image_url = nil
+question4 = Question.create(question: "En esta intersección, ¿quién tiene prioridad de paso?", image_url = 'https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/public/images/interseccion.png')
 question4.save
 Option.create(option: "Es indistinto.", option2: "El conductor.", correct: "El peatón.", question: question4)
 
