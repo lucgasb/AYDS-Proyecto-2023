@@ -99,8 +99,7 @@ class App < Sinatra::Application
     @contador ||= 0
     if @contador < @preguntas.length
       @contador += 1
-      @examen ||= Exam.find_by(id: params[:id]) # Obtener el objeto @examen existente o encontrarlo por ID
-      @examen ||= Exam.create(id: params[:id]) # Crear un nuevo objeto @examen si no existe    end
+      @examen = Exam.find_or_create_by(id: params[:id])
     end
       erb :quiz, locals: { examen: @examen, contador: @contador }
   end
@@ -118,7 +117,7 @@ class App < Sinatra::Application
         @examen.score += 10
         @examen.save
       else 
-        @examen.score += 100
+        @examen.score += 100 #no entra en ninguna condicion, no se producen cambios en score
         @examen.save
       end
     end
@@ -134,6 +133,9 @@ class App < Sinatra::Application
         @examen.life -= 1
         @examen.save
       end
+    else 
+      @examen.score += 55 #no entra en ninguna condicion, no se producen cambios en score
+      @examen.save
     end
     erb :respuestaIncorrecta, locals: { examen: @examen }
   end
