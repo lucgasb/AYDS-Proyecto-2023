@@ -3,11 +3,13 @@ Option.destroy_all
 Question.destroy_all
 User.destroy_all
 
-question1 = Question.create(question: "¿Qué significa esta señal?", image_url: 'https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/public/images/preg1.jpg')
+question1 = Question.create(question: "¿Qué significa esta señal?")
+question1.image_url = '/images/preg1.jpg'
 question1.save
 Option.create(option: "Cementerio.", option2: "Incorporacion de caminos.", correct: "Cruce de caminos.", question: question1)
 
-question2 = Question.create(question: "¿Qué significa esta señal?", image_url: 'https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/images/cruce.jpg')
+question2 = Question.create(question: "¿Qué significa esta señal?")
+question2.image_url = '/images/cruce.jpg'
 question2.save
 Option.create(option: "Cruce de caminos.",  option2: "Proximidad de cementerio.", correct: "Cruce ferroviario.", question: question2)
 
@@ -15,7 +17,8 @@ question3 = Question.create(question: "¿A qué se denomina incidente de tránsi
 question3.save
 Option.create(option: "Hecho, evitable o no, que involucra daños a terceros.", option2: "Hecho impredecible e inevitable en ocasión de circulación en la vía pública.", correct: "Hecho que puede ser evitado, en el cual se produce daño a persona o cosa, en ocasión de circulación en la vía pública.", question: question3)
 
-question4 = Question.create(question: "En esta intersección, ¿quién tiene prioridad de paso?", image_url: 'https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/public/images/interseccion.png')
+question4 = Question.create(question: "En esta intersección, ¿quién tiene prioridad de paso?")
+question4.image_url = '/images/interseccion.png'
 question4.save
 Option.create(option: "Es indistinto.", option2: "El conductor.", correct: "El peatón.", question: question4)
 
@@ -46,7 +49,8 @@ question10 = Question.create(question: "En una rotonda tiene prioridad…")
 question10.save
 Option.create(option: "El que accede por la derecha.", option2: "El que ingresa a la rotonda.", correct: "El que circula por la rotonda por sobre el que ingresa.", question: question10)
 
-question11 = Question.create(question: "¿Qué significa esta Señal?", image_url: 'contramano-300x251.jpg')
+question11 = Question.create(question: "¿Qué significa esta Señal?")
+question11.image_url = '/images/contramano-300x251.jpg'
 question11.save
 Option.create(option: "Puesto de control.", option2: " Detener la circulación. Parar.", correct: "Contramano.", question: question11)
 
