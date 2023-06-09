@@ -119,13 +119,11 @@ class App < Sinatra::Application
   end
 
   get '/exam/play/correct' do
+    logger.info(params)
     if params[:id].present?
       @examen = Exam.find_by(id: params[:id])
       if @examen
         @examen.score += 10
-        @examen.save
-      else 
-        @examen.score += 100 #no entra en ninguna condicion, no se producen cambios en score
         @examen.save
       end
     end
@@ -141,11 +139,8 @@ class App < Sinatra::Application
         @examen.life -= 1
         @examen.save
       end
-    else 
-      @examen.score += 55 #no entra en ninguna condicion, no se producen cambios en score
-      @examen.save
-    end
     erb :respuestaIncorrecta, locals: { examen: @examen }
+    end
   end
   
 end
