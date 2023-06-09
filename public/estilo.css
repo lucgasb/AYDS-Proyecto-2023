@@ -31,6 +31,19 @@ body {
     padding: 40px;
     border-radius: 5px;
   }
+
+  
+  .profile-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #73a7eb;
+    color:white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; 
+  }
   
   button[type="submit"] {
     display: inline-block;
