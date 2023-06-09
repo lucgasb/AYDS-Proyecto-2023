@@ -24,7 +24,6 @@ class App < Sinatra::Application
 
   set :root,  File.dirname(__FILE__)
   set :views, Proc.new { File.join(root, 'views') }
-  #set :public_folder, File.join(root, 'static')
 
   configure :production, :development do
     enable :logging
@@ -95,14 +94,22 @@ class App < Sinatra::Application
   end
 
   get '/exam/play' do
-    @preguntas = Question.all.shuffle
+    answered_question_ids = current_user.answered_question_ids || []
+    @preguntas = Question.where.not(id: answered_question_ids).shuffle
+
     @contador ||= 0
     if @contador < @preguntas.length
       @contador += 1
+
+      @pregunta = @preguntas[@contador - 1]
+      answered_question_ids << @pregunta.id
+      current_user.update(answered_question_ids: answered_question_ids)
+
       @examen = Exam.find_or_create_by(id: params[:id])
     end
-      erb :quiz, locals: { examen: @examen, contador: @contador }
+    erb :quiz, locals: { examen: @examen, contador: @contador }
   end
+  
   post '/exam/play' do
     @examen = Exam.find_by(id: params[:id])
     if @examen != nil

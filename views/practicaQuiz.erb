@@ -6,6 +6,8 @@
     <body>
         <h1>Pregunta:</h1>
         <h1><p><%= @preguntas[@contador].question %></p></h1>
+        <img src="<%= @preguntas[@contador].image_url %>">
+
         <form action="/practice/play/incorrect" method="get">
         <label>  
           <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.option %>" required><%= @preguntas[@contador].option.option %></button>
