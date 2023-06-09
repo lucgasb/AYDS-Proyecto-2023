@@ -107,13 +107,22 @@ class App < Sinatra::Application
     if @contador < @preguntas.length
       @contador += 1
 
-      @pregunta = @preguntas[@contador - 1]
+      #@pregunta = @preguntas[@contador - 1]
       #answered_question_ids << @pregunta.id
       #current_user.update(answered_question_ids: answered_question_ids)
 
       @examen = Exam.find_or_create_by(id: params[:id])
     end
+    if @examen.life == 0
+      user = User.find_by(id: session[:user_id])
+      if user.total_score < @examen.score
+        user.total_score = @examen.score
+        user.save
+      end   
+      erb :lost
+    else  
     erb :quiz, locals: { examen: @examen, contador: @contador }
+    end
   end
   
   post '/exam/play' do
