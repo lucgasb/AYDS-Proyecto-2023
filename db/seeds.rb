@@ -46,3 +46,15 @@ question10 = Question.create(question: "En una rotonda tiene prioridad…")
 question10.save
 Option.create(option: "El que accede por la derecha.", option2: "El que ingresa a la rotonda.", correct: "El que circula por la rotonda por sobre el que ingresa.", question: question10)
 
+question11 = Question.create(question: "¿Qué significa esta Señal?", image_url: 'contramano-300x251.jpg')
+question11.save
+Option.create(option: "Puesto de control.", option2: " Detener la circulación. Parar.", correct: "Contramano.", question: question11)
+
+question12 = Question.create(question: "El cinturón de seguridad es obligatorio para:")
+question12.save
+Option.create(option: "El conductor.", option2: " Los que viajan en asientos delanteros.", correct: " Todos los ocupantes del vehículo.", question: question12)
+
+question13 = Question.create(question: "¿Cuáles son los porcentajes máximos permitidos de alcoholemia para la conducción de un automóvil o camioneta?")
+question13.save
+Option.create(option: "0,2 grs. De alcohol por litro de sangre.", option2: "0,5 grs. De alcohol por litro de sangre.", correct: "0,0 grs. De alcohol por litro de sangre.", question: question13)
+
