@@ -110,7 +110,7 @@ class App < Sinatra::Application
       #@pregunta = @preguntas[@contador - 1]
       #answered_question_ids << @pregunta.id
       #current_user.update(answered_question_ids: answered_question_ids)
-
+      
       @examen = Exam.find_or_create_by(id: params[:id])
     end
     if @examen.life == 0
@@ -120,7 +120,9 @@ class App < Sinatra::Application
         user.save
       end   
       erb :lost
-    else  
+    else
+    @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
+    @opciones = @opciones.shuffle      
     erb :quiz, locals: { examen: @examen, contador: @contador }
     end
   end

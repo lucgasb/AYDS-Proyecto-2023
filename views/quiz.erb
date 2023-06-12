@@ -5,26 +5,22 @@
 </head>
 <body>
   <h1>Pregunta:</h1>
-  <h1><p><%= @preguntas[@contador].question %></p></h1>
+  <h1><%= @preguntas[@contador].question %></h1>
   <img src="<%= @preguntas[@contador].image_url %>">
-  
-  <form action="/exam/play/incorrect" method="get">
-    <input type="hidden" name="id" value="<%= @examen.id %>">
-    <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.option %>" required><%= @preguntas[@contador].option.option %></button>
-  </form>
-  
-  <form action="/exam/play/incorrect" method="get">
-    <input type="hidden" name="id" value="<%= @examen.id %>">
-    <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.option2 %>" required><%= @preguntas[@contador].option.option2 %></button>
-  </form>
-  
-  <form action="/exam/play/correct" method="get">
-    <input type="hidden" name="id" value="<%= @examen.id %>">
-    <button type="submit" name="respuesta" value="<%= @preguntas[@contador].option.correct %>" required><%= @preguntas[@contador].option.correct %></button> 
-  </form>
-  
+  <% @opciones.each do |op| %>
+    <% if op == @preguntas[@contador].option.correct %>
+      <form action="/exam/play/correct" method="get">
+        <input type="hidden" name="id" value="<%= @examen.id %>">
+        <button type="submit" value="<%= op %>"><%= op %></button>
+      </form>
+    <% else %>
+      <form action="/exam/play/incorrect" method="get">
+        <input type="hidden" name="id" value="<%= @examen.id %>">
+        <button type="submit" value="<%= op %>"><%= op %></button>
+      </form>  
+    <% end %>    
+  <% end %>
   <h2>Puntaje: <%= @examen.score %> </h2> 
   <h2>Vidas: <%= @examen.life %> </h2> 
 </body>
 </html>
-
