@@ -86,6 +86,7 @@ class App < Sinatra::Application
     @contador ||= 0
     if @contador < @preguntas.length
       @contador += 1
+      @practica = Practice.find_or_create_by(id: params[:id])
     end
     @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
     @opciones = @opciones.shuffle

@@ -13,16 +13,19 @@ body {
   }
   
   h1 {
-    font-size: 32px;
+    padding: 40px;
+    font-size: 70px;
     color: black;
     margin-bottom: 20px;
     text-align: center;
   }
   
   h2 {
-    font-size: 24px;
+    padding: 70px;
+    font-size: 40px;
     color: #333333;
     margin-bottom: 20px;
+    text-align: center;
   }
   
   button {
