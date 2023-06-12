@@ -87,6 +87,8 @@ class App < Sinatra::Application
     if @contador < @preguntas.length
       @contador += 1
     end
+    @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
+    @opciones = @opciones.shuffle
     erb :practicaQuiz
   end
 
