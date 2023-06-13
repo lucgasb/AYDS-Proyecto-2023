@@ -80,7 +80,9 @@ class App < Sinatra::Application
   get '/practice' do
     erb :practica
   end
-
+  get '/practice/theoric' do
+    erb :teorico 
+  end  
   get '/practice/play' do
     @preguntas = Question.all.shuffle
     @contador ||= 0
@@ -102,18 +104,15 @@ class App < Sinatra::Application
   end
 
   get '/exam/play' do
-    #answered_question_ids = current_user.answered_question_ids || []
-    #@preguntas = Question.where.not(id: answered_question_ids).shuffle
+    @visited ||= []
     @preguntas = Question.all.shuffle
-
+    @preguntas = @preguntas - @visited
     @contador ||= 0
+    if !(@visited.include?(@preguntas[@contador]))
+      @visited.push(@preguntas[@contador])
+    end
     if @contador < @preguntas.length
-      @contador += 1
-
-      #@pregunta = @preguntas[@contador - 1]
-      #answered_question_ids << @pregunta.id
-      #current_user.update(answered_question_ids: answered_question_ids)
-      
+      @contador += 1      
       @examen = Exam.find_or_create_by(id: params[:id])
     end
     if @examen.life == 0
@@ -124,9 +123,14 @@ class App < Sinatra::Application
       end   
       erb :lost
     else
-    @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
-    @opciones = @opciones.shuffle      
-    erb :quiz, locals: { examen: @examen, contador: @contador }
+      if Question.all.length == @visited.length
+        erb :end
+      end
+
+      @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
+      @opciones = @opciones.shuffle
+
+      erb :quiz, locals: { examen: @examen, contador: @contador }
     end
   end
   
