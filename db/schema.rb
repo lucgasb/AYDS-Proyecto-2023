@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_31_233815) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_14_201938) do
   create_table "exams", force: :cascade do |t|
     t.integer "score", default: 0
     t.integer "life", default: 3
     t.integer "time", default: 30
+    t.integer "answered_questions"
   end
 
   create_table "options", force: :cascade do |t|
@@ -48,7 +49,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_233815) do
     t.string "email"
     t.string "password"
     t.integer "total_score", default: 0
-    t.integer "answered_question_ids"
   end
 
   create_table "users_exams", id: false, force: :cascade do |t|
