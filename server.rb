@@ -103,18 +103,20 @@ class App < Sinatra::Application
     erb :practicaIncorrecta
   end
 
-  get '/exam/play' do
-    @visited ||= []
-    @preguntas = Question.all.shuffle
-    @preguntas = @preguntas - @visited
+  post '/exam/play' do
     @contador ||= 0
-    if !(@visited.include?(@preguntas[@contador]))
-      @visited.push(@preguntas[@contador])
+    @preguntas = Question.all.shuffle
+    @examen = Exam.find_or_create_by(id: params[:id])
+    @visited ||= []
+    @visited += [@examen.answered_questions]
+    if @visited.include?(@preguntas[@contador].id)
+      @preguntas = @preguntas - [@preguntas[@contador]] 
     end
-    if @contador < @preguntas.length
-      @contador += 1      
-      @examen = Exam.find_or_create_by(id: params[:id])
-    end
+    @visited.push(@preguntas[@contador].id)
+    @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
+    @opciones = @opciones.shuffle
+    @examen.answered_questions = @visited
+    @examen.save
     if @examen.life == 0
       user = User.find_by(id: session[:user_id])
       if user.total_score < @examen.score
@@ -126,15 +128,11 @@ class App < Sinatra::Application
       if Question.all.length == @visited.length
         erb :end
       end
-
-      @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
-      @opciones = @opciones.shuffle
-
       erb :quiz, locals: { examen: @examen, contador: @contador }
     end
   end
   
-  post '/exam/play' do
+  get '/exam/play' do
     @examen = Exam.find_by(id: params[:id])
     if @examen != nil
       erb :quiz, locals: {examen: @examen, contador: @contador}

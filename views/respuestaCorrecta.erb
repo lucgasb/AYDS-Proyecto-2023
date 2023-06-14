@@ -5,7 +5,7 @@
   </head>
     <body>
     <h1>Respuesta Correcta</h1>
-      <form action="/exam/play?id<%=@examen.id%>" method="get">
+      <form action="/exam/play?id<%=@examen.id%>" method="post">
         <input type="hidden" name="id" value="<%= @examen.id %>">
         <button type="submit" value="continue">Continuar</button>
       </form>
