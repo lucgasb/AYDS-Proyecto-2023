@@ -36,12 +36,11 @@ form {
 
 input {
   display: block;
-  width: 100%;
-  margin-bottom: 20px;
+  width: 50%;
+  margin-bottom: 5px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: solid #ccc;
   border-radius: 10px;
-  box-sizing: border-box;
   font-size: 20px;
 }
 

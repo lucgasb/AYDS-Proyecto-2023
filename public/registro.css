@@ -28,9 +28,9 @@ body {
     align-items: center;
     margin: 0 auto;
     max-width: 480px;
-    padding: 40px;
-    background-color: none;
-    border: none;
+    padding: 400px;
+    background-color: white;
+    border: white;
     border-radius: 30px;
   }
   
@@ -43,6 +43,7 @@ body {
     border-radius: 10px;
     box-sizing: border-box;
     font-size: 20px;
+    background-color: whit;
   }
   
   button[type="submit"] {
@@ -50,7 +51,7 @@ body {
     padding: 10px 20px;
     background-color: #d758e7;
     color: #fff;
-    border: none;
+    border: white;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s ease;
