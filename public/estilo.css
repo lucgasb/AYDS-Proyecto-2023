@@ -22,6 +22,16 @@ body {
     padding: 200px 0 10px 0;
   }
 
+  h2 {
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 10px;
+    justify-content: center;
+    display: flex;
+    padding: 10px 0 10px 0;
+  }
+  
   form {
     display: flex;
     flex-direction: column;
@@ -33,13 +43,14 @@ body {
   }
 
   
-  .profile-button {
+  .profile-data {
+    font-size: 24;
     padding: 10px 20px;
     position: fixed;
     top: 20px;
     right: 20px;
     padding: 10px 20px;
-    background-color: #73a7eb;
+    background-color: none;
     color:white;
     border: none;
     border-radius: 5px;

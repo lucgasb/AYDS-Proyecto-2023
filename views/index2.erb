@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>A qué quieres jugar?</title>
-        <link rel="stylesheet" type="text/css" href="<%= url('/estilo.css?v=10000') %>">
+        <link rel="stylesheet" type="text/css" href="<%= url('/estilo.css?v=15000') %>">
     </head>
     <h1>¿A qué modo quieres jugar?</h1>
     <form action="/exam" method="get">
@@ -10,7 +10,7 @@
     <form action="/practice" method="get">
         <button type="submit" value="ModoPractica">Modo Practica</button>
     </form>
-    <form style=""action="/profile" method="post">
-        <button class="profile-button" type="submit" value="profile">Ver Perfil</button>
-    </form>
+    <div class="profile-data">
+       <h2>Nombre de usuario: <%= @user.username %></h2>
+       <h2>Máximo puntaje: <%= @user.total_score %></h2>
 </html>

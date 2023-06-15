@@ -46,9 +46,10 @@ class App < Sinatra::Application
   end
 
   post '/' do
-    user = User.find_by(email: params[:email], password: params[:password])
+    user = User.find_by(username: params[:username], password: params[:password])
     if user != nil
       session[:user_id] = user.id.to_s
+      @user = User.find_by(id: session[:user_id])
       erb :index2
     else 
       redirect '/register'
@@ -60,12 +61,12 @@ class App < Sinatra::Application
   end
   
   post '/register' do
-    if params[:password] == params[:password2]
-      user = User.create(email: params[:email],password: params[:password])
-      redirect '/'
-    else
-      redirect '/register'
-    end     
+      if params[:password] == params[:password2]
+        user = User.create(username: params[:username],email: params[:email],password: params[:password])
+        redirect '/menu'
+      else
+        redirect '/register'
+      end       
   end
 
   post '/profile' do
@@ -156,7 +157,7 @@ class App < Sinatra::Application
     if params[:id].present?
       @examen = Exam.find_by(id: params[:id])
       if @examen
-        @examen.score -= 10
+        @examen.score -= 5
         @examen.life -= 1
         @examen.save
       end

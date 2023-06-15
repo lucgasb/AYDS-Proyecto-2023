@@ -4,10 +4,10 @@
     <link rel="stylesheet" type="text/css" href="<%= url('/lost.css?v=80') %>">
     </head>
     <body>
-        <h1>HAS PERDIDO :(</h1>
-        <h2>Loco si seguis asi chocas a la primera cuadra</h2>
+        <h1>HAS PERDIDO!</h1>
+        <h2>Tu puntaje fue de: <%=@examen.score%> puntos</h2>
         <form action="/exam" method="get">
-            <button type="submit" value="lost">Volver al Modo Examen</button>
+            <button type="submit" value="lost">Volver al menú</button>
         </form>
     </body>
 </html>
