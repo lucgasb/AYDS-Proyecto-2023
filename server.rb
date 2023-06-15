@@ -63,7 +63,7 @@ class App < Sinatra::Application
   post '/register' do
       if params[:password] == params[:password2]
         user = User.create(username: params[:username],email: params[:email],password: params[:password])
-        redirect '/menu'
+        redirect '/'
       else
         redirect '/register'
       end       
