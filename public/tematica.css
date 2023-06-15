@@ -27,19 +27,21 @@ form {
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  max-width: 480px;
-  padding: 40px;
-  background-color: #fff;
+  max-width: 360px;
+  padding: 30px;
+  background-color: white;
   border: 1px solid #ddd;
   border-radius: 30px;
 }
 
 input {
+  margin-left: -80px;
+  align-items: center;
   display: block;
-  width: 50%;
+  width: 200%;
   margin-bottom: 5px;
   padding: 10px;
-  border: solid #ccc;
+  border: solid white;
   border-radius: 10px;
   font-size: 20px;
 }

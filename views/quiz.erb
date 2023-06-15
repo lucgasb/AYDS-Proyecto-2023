@@ -1,12 +1,14 @@
 <html>
 <head> 
-  <link rel="stylesheet" type="text/css" href="<%= url('/quiz.css?v=700') %>">
+  <link rel="stylesheet" type="text/css" href="<%= url('/quiz.css?v=70000') %>">
   <title>Modo Examen - En juego</title>
 </head>
 <body>
   <h1>Pregunta:</h1>
   <h1><%= @preguntas[@contador].question %></h1>
-  <img src="<%= @preguntas[@contador].image_url %>">
+  <div class="center-image">
+    <img src="<%= @preguntas[@contador].image_url %>">
+  </div>  
   <% @opciones.each do |op| %>
     <% if op == @preguntas[@contador].option.correct %>
       <form action="/exam/play/correct" method="get">

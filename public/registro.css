@@ -1,86 +1,81 @@
 body {
-    background-image: url("https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/public/images/Autonomous%20Intersection.gif");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    font-family: 'poppins' ,sans-serif;
-    font-size: 30px;
-    line-height: 1.5;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
-  
-  h1 {
-    color: #000000;
-    font-size: 50px;
-    text-align: center;
-    margin-bottom: 40px;
-    justify-content: center;
-    display: flex;
-    padding: 10px 0 10px 0;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    max-width: 480px;
-    padding: 400px;
-    background-color: white;
-    border: white;
-    border-radius: 30px;
-  }
-  
-  input {
-    display: block;
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-sizing: border-box;
-    font-size: 20px;
-    background-color: whit;
-  }
-  
-  button[type="submit"] {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #d758e7;
-    color: #fff;
-    border: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    font-size: 19px;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #601074;
-  }
-  
-  .input-field .input{
-    height: 45px;
-    width: 87%;
-    border: none;
-    border-radius: 30px;
-    color: #fff;
-    font-size: 15px;
-    padding: 0 0 0 45px;
-    background: rgba(255,255,255,0.1);
-    outline: none;
-  }
-  
-  .box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 90vh;
-  }
-  
-  
-  
-  
+  background-image: url("https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/public/images/Autonomous%20Intersection.gif");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: 'poppins' ,sans-serif;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  color: #000000;
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 40px;
+  justify-content: center;
+  display: flex;
+  padding: 10px 0 10px 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 350 auto;
+  max-width: 360px;
+  padding: 30px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+}
+
+input {
+  margin-left: -80px;
+  align-items: center;
+  display: block;
+  width: 200%;
+  margin-bottom: 5px;
+  padding: 10px;
+  border: solid #ccc;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+button[type="submit"] {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #d758e7;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 19px;
+}
+
+button[type="submit"]:hover {
+  background-color: #601074;
+}
+
+.input-field .input{
+  height: 45px;
+  width: 87%;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 15px;
+  padding: 0 0 0 45px;
+  background: rgba(255,255,255,0.1);
+  outline: none;
+}
+
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
