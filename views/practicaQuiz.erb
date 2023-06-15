@@ -6,7 +6,9 @@
     <body>
         <h1>Pregunta:</h1>
         <h1><p><%= @preguntas[@contador].question %></p></h1>
-        <img src="<%= @preguntas[@contador].image_url %>">
+        <div class="center-image">
+          <img src="<%= @preguntas[@contador].image_url %>">
+        </div> 
         <% @opciones.each do |op| %>
           <% if op == @preguntas[@contador].option.correct %>
             <form action="/practice/play/correct" method="get">
