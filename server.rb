@@ -69,11 +69,6 @@ class App < Sinatra::Application
       end       
   end
 
-  post '/profile' do
-    @user = User.find_by(id: session[:user_id])
-    erb :profile
-  end  
-
   get '/exam' do
     erb :index3
   end

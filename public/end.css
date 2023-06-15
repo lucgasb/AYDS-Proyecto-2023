@@ -1,0 +1,14 @@
+
+body {
+  background-image: url("https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/public/images/file_1280x720-2000-v3_1-_online-video-cutter.com__1.gif");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: 'poppins', sans-serif;
+  font-size: 30px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
