@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_201938) do
     t.string "email"
     t.string "password"
     t.integer "total_score", default: 0
+    t.string "username"
   end
 
   create_table "users_exams", id: false, force: :cascade do |t|
