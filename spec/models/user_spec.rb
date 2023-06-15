@@ -21,14 +21,14 @@ describe 'User' do
       end
     end
 
-    describe 'when the username is too short' do
+    describe 'when the password is too short' do
       it 'should be invalid' do
-        u = User.new(username: 'ab', email: 'juan@example.com', password: '1234')
+        u = User.new(username: 'juancito', email: 'juan@example.com', password: '1234')
         expect(u.valid?).to eq(false)
       end
     end
 
-    describe 'when the password is too short' do
+    describe 'when the username is too short' do
       it 'should be invalid' do
         u = User.new(username: 'ab', email: 'juan@example.com')
         expect(u.valid?).to eq(false)
@@ -37,7 +37,7 @@ describe 'User' do
 
     describe 'when the email domain is invalid' do
       it 'should be invalid' do
-        u = User.new(username: 'john_doe', email: 'john@example')
+        u = User.new(username: 'luis_cabral', email: 'luisito@example')
         expect(u.valid?).to eq(false)
       end
     end
