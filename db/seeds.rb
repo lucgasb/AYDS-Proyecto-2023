@@ -62,3 +62,6 @@ question13 = Question.create(question: "¿Cuáles son los porcentajes máximos p
 question13.save
 Option.create(option: "0,2 grs. De alcohol por litro de sangre.", option2: "0,5 grs. De alcohol por litro de sangre.", correct: "0,0 grs. De alcohol por litro de sangre.", question: question13)
 
+question14 = Question.create(question: "¿A qué factor se deben la mayoría de siniestros víales?")
+question14.save
+Option.create(option: "Al vehicular", option2: "Al ambiental", correct: "Al humano", question: question14)

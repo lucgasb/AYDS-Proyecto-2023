@@ -159,5 +159,4 @@ class App < Sinatra::Application
     erb :respuestaIncorrecta, locals: { examen: @examen }
     end
   end
-  
 end
