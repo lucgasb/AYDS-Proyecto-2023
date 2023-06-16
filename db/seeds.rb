@@ -65,3 +65,15 @@ Option.create(option: "0,2 grs. De alcohol por litro de sangre.", option2: "0,5 
 question14 = Question.create(question: "¿A qué factor se deben la mayoría de siniestros víales?")
 question14.save
 Option.create(option: "Al vehicular", option2: "Al ambiental", correct: "Al humano", question: question14)
+
+question15 = Question.create(question: "A fin de aumentar la propia seguridad y la de los demás, ¿a qué se debería poner atención durante la circulación?")
+question15.save
+Option.create(option: "Al estado del pavimento y al clima, en especial.", option2: "Ninguna de las opciones.", correct: "A las condiciones en que se encuentran: el automóvil, la infraestructura vial, las condiciones climáticas y el conductor.", question: question15)
+
+question16 = Question.create(question: "“Cada usuario de la vía pública es responsable de una parte del tránsito.” ¿Es correcta ésta premisa?")
+question16.save
+Option.create(option: "No, porque los que tienen responsabilidad son aquellos que conducen cualquier tipo de vehículo.", option2: "No, la responsabilidad la asumen aquellos que obtienen una licencia de conducir.", correct: "Sí, porque se está obligado a no causar peligro ni entorpecer la circulación.", question: question16)
+
+question17 = Question.create(question: "Además de provocar víctimas fatales o lesionados graves, ¿Qué otras consecuencias puede generar un siniestro de tránsito?")
+question17.save
+Option.create(option: "Daños materiales y costos sanitarios.", option2: "Sólo daños materiales.", correct: "Daños materiales, costos sanitarios y administrativos.", question: question17)
