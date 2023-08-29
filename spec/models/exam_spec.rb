@@ -39,7 +39,7 @@ describe 'Exam' do
                 s = e.score
                 expect(e.restaPuntos).to eq(s - 5)
             end
-        end        
+        end
     end
 end
 
