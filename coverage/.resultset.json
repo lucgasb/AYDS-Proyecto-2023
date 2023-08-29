@@ -9,6 +9,101 @@
           null
         ]
       },
+      "/src/spec/models/exam_spec.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/src/models/init.rb": {
+        "lines": [
+          1,
+          1,
+          1
+        ]
+      },
+      "/src/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/src/models/exam.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          2,
+          1,
+          null,
+          1,
+          null,
+          2,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/src/spec/models/user_spec.rb": {
         "lines": [
           1,
@@ -58,25 +153,8 @@
           null,
           null
         ]
-      },
-      "/src/models/init.rb": {
-        "lines": [
-          1,
-          1
-        ]
-      },
-      "/src/models/user.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null
-        ]
       }
     },
-    "timestamp": 1693320315
+    "timestamp": 1693334926
   }
 }
