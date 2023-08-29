@@ -12,7 +12,7 @@ gem 'sinatra-contrib'
 gem 'sinatra-activerecord'
 gem 'sqlite3'
 gem 'rake'
-
+gem 'simplecov', require: false
 group :test do
     gem 'rspec'
 end
