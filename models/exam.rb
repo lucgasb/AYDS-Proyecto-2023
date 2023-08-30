@@ -21,4 +21,9 @@ class Exam < ActiveRecord::Base
         @puntos -= 5
         return @puntos
     end 
+    def restaVida
+        @vida = life
+        @vida -= 1
+        return @vida
+    end
 end

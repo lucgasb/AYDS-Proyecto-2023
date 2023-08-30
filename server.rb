@@ -152,9 +152,14 @@ class App < Sinatra::Application
     if params[:id].present?
       @examen = Exam.find_by(id: params[:id])
       if @examen
-        @examen.score -= 5
-        @examen.life -= 1
-        @examen.save
+        if @examen.score == 0
+          @examen.life -= 1
+          @examen.save
+        else
+          @examen.score -= 5
+          @examen.life -= 1
+          @examen.save
+        end    
       end
     erb :respuestaIncorrecta, locals: { examen: @examen }
     end

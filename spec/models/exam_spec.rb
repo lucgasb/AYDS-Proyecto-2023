@@ -40,6 +40,13 @@ describe 'Exam' do
                 expect(e.restaPuntos).to eq(s - 5)
             end
         end
+        
+        describe 'when the answer is wrong' do
+            it 'the life should be minus 1' do
+                e = Exam.new
+                expect(e.restaVida).to eq(e.life - 1)
+            end
+        end    
     end
 end
 
