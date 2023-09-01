@@ -3,5 +3,5 @@ class User < ActiveRecord::Base
 
     validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :username, presence: true, length: { minimum: 3 }
-    validates :password, length: { minimum: 6 }
+    validates :password, presence: true , length: { minimum: 6 }
 end
