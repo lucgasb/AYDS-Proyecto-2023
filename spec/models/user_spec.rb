@@ -51,6 +51,12 @@ describe 'User' do
         expect(u.valid?).to eq(false)
       end
     end
+    describe 'when all the attributes are valid' do
+      it 'should be valid' do
+        u = User.new(username: 'luis_cabral', email: 'luisito@example.com', password: 'password')
+        expect(u.valid?).to eq(true)
+      end
+    end
   end
 end
 
