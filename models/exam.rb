@@ -10,7 +10,11 @@ class Exam < ActiveRecord::Base
         return score + 10
     end
     def restaPuntos
-        return score - 5
+        if score == 0
+            return 0
+        else    
+            return score - 5
+        end    
     end 
     def restaVida
         return life - 1

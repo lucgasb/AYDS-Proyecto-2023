@@ -67,6 +67,14 @@ describe 'Exam' do
                 expect(e.life).to eq(2)
             end
         end
+        describe 'when the first answer is wrong but the second answer is correct' do
+            it 'the score should be 10' do
+                e = Exam.new
+                e.score = e.restaPuntos
+                e.score = e.sumaPuntos
+                expect(e.score).to eq(10)
+            end
+        end
     end
 end
 
