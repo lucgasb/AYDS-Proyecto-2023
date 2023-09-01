@@ -51,7 +51,22 @@ describe 'Exam' do
                 i = e.restaVida
                 expect(i).to eq(2)
             end
-        end    
+        end
+        describe 'when the first answer is correct but the second answer is wrong' do
+            it 'the score should be 5' do
+                e = Exam.new
+                e.score = e.sumaPuntos
+                e.score = e.restaPuntos
+                expect(e.score).to eq(5)
+            end    
+        end
+        describe 'when the first answer is correct but the second answer is wrong' do
+            it 'the life should be 2' do
+                e = Exam.new
+                e.life = e.restaVida
+                expect(e.life).to eq(2)
+            end
+        end
     end
 end
 

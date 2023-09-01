@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-09-01T05:13:11+00:00">2023-09-01T05:13:11+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-09-01T05:29:11+00:00">2023-09-01T05:29:11+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -30,7 +30,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.01
+         1.04
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>86</b> relevant lines,
-    <span class="green"><b>86</b> lines covered</span> and
+    <b>97</b> relevant lines,
+    <span class="green"><b>97</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -88,7 +88,7 @@
             <td class="cell--number">12</td>
             <td class="cell--number">12</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.08</td>
+            <td class="cell--number">1.33</td>
             
           </tr>
         
@@ -117,9 +117,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#33085beef51385a01516812ad61d226d8219e63d" class="src_link" title="spec/models/exam_spec.rb">spec/models/exam_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">57</td>
-            <td class="cell--number">37</td>
-            <td class="cell--number">37</td>
+            <td class="cell--number">72</td>
+            <td class="cell--number">48</td>
+            <td class="cell--number">48</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -354,8 +354,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="10">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="10">
+            <span class="hits">2</span>
             
 
             
@@ -387,8 +387,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="13">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="13">
+            <span class="hits">2</span>
             
 
             
@@ -420,8 +420,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="16">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="16">
+            <span class="hits">2</span>
             
 
             
@@ -643,8 +643,8 @@
     
 
     <div class="t-line-summary">
-      <b>37</b> relevant lines.
-      <span class="green"><b>37</b> lines covered</span> and
+      <b>48</b> relevant lines.
+      <span class="green"><b>48</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -1245,12 +1245,177 @@
 
             
 
-            <code class="ruby">        end    </code>
+            <code class="ruby">        end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="55">
+          <li class="covered" data-hits="1" data-linenumber="55">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        describe &#39;when the first answer is correct but the second answer is wrong&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="56">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">            it &#39;the score should be 5&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="57">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">                e = Exam.new</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="58">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">                e.score = e.sumaPuntos</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="59">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">                e.score = e.restaPuntos</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="60">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">                expect(e.score).to eq(5)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="61">
+            
+            
+
+            
+
+            <code class="ruby">            end    </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="62">
+            
+            
+
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="63">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        describe &#39;when the first answer is correct but the second answer is wrong&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="64">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">            it &#39;the life should be 2&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="65">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">                e = Exam.new</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="66">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">                e.life = e.restaVida</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="67">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">                expect(e.life).to eq(2)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="68">
+            
+            
+
+            
+
+            <code class="ruby">            end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="69">
+            
+            
+
+            
+
+            <code class="ruby">        end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="70">
             
             
 
@@ -1261,7 +1426,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="56">
+          <li class="never" data-hits="" data-linenumber="71">
             
             
 
@@ -1272,7 +1437,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="57">
+          <li class="never" data-hits="" data-linenumber="72">
             
             
 
