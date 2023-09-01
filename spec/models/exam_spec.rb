@@ -28,23 +28,28 @@ describe 'Exam' do
         describe 'when the answer is correct' do
             it 'the score should be plus 10' do
                 e = Exam.new
-                s = e.score
-                expect(e.sumaPuntos).to eq(s + 10)
+                e.score = 10
+                e.save
+                expect(e.sumaPuntos).to eq(20)
             end
         end
         
         describe 'when the answer is wrong' do
             it 'the score should be minus 5' do
                 e = Exam.new
-                s = e.score
-                expect(e.restaPuntos).to eq(s - 5)
+                e.score = 10
+                e.save
+                expect(e.restaPuntos).to eq(5)
             end
         end
         
         describe 'when the answer is wrong' do
             it 'the life should be minus 1' do
                 e = Exam.new
-                expect(e.restaVida).to eq(e.life - 1)
+                e.life = 3
+                e.save
+                i = e.restaVida
+                expect(i).to eq(2)
             end
         end    
     end

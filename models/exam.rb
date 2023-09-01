@@ -4,26 +4,15 @@ class Exam < ActiveRecord::Base
 
     validates :score, numericality: { greater_than_or_equal_to: 0 }
     def isValid
-        if life == 0 
-            @valid = false
-        else 
-            @valid = true
-        end
-        return @valid
+        return life > 0
     end
     def sumaPuntos
-        @puntos = score
-        @puntos += 10
-        return @puntos
+        return score + 10
     end
     def restaPuntos
-        @puntos = score
-        @puntos -= 5
-        return @puntos
+        return score - 5
     end 
     def restaVida
-        @vida = life
-        @vida -= 1
-        return @vida
+        return life - 1
     end
 end

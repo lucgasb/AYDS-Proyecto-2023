@@ -113,7 +113,7 @@ class App < Sinatra::Application
     @opciones = @opciones.shuffle
     @examen.answered_questions = @visited
     @examen.save
-    if @examen.life == 0
+    if !@examen.isValid
       user = User.find_by(id: session[:user_id])
       if user.total_score < @examen.score
         user.total_score = @examen.score
@@ -140,7 +140,7 @@ class App < Sinatra::Application
     if params[:id].present?
       @examen = Exam.find_by(id: params[:id])
       if @examen
-        @examen.score += 10
+        @examen.score = @examen.sumaPuntos
         @examen.save
       end
     end
@@ -153,11 +153,11 @@ class App < Sinatra::Application
       @examen = Exam.find_by(id: params[:id])
       if @examen
         if @examen.score == 0
-          @examen.life -= 1
+          @examen.life = @examen.restaVida
           @examen.save
         else
-          @examen.score -= 5
-          @examen.life -= 1
+          @examen.score = @examen.restaPuntos
+          @examen.life = @examen.restaVida
           @examen.save
         end    
       end
