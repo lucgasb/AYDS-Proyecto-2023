@@ -4,5 +4,4 @@ class Option < ActiveRecord::Base
     validates :option, presence: true
     validates :option2, presence: true
     validates :correct, presence: true
-    validates :question, presence: true
 end
