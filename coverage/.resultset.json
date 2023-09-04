@@ -97,6 +97,7 @@
         "lines": [
           1,
           1,
+          1,
           1
         ]
       },
@@ -133,6 +134,56 @@
           null,
           1,
           2,
+          null,
+          null
+        ]
+      },
+      "/src/models/option.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/src/spec/models/option_spec.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
           null,
           null
         ]
@@ -204,6 +255,6 @@
         ]
       }
     },
-    "timestamp": 1693548232
+    "timestamp": 1693833542
   }
 }
