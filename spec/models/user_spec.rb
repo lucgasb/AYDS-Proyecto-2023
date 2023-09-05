@@ -38,7 +38,7 @@ describe 'User' do
       end
     end
     
-    describe 'when the email hasnt got a @' do
+    describe 'when the email has not got a @' do
       it 'should be invalid' do
         u = User.new(username: 'luis_cabral', email: 'bali', password: 'password')
         expect(u.valid?).to eq(false)
