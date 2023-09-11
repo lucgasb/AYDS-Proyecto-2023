@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_14_201938) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_11_220728) do
   create_table "exams", force: :cascade do |t|
     t.integer "score", default: 0
     t.integer "life", default: 3
