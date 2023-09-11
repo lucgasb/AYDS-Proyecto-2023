@@ -9,6 +9,31 @@
           null
         ]
       },
+      "/src/spec/app_spec.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          2,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
       "/src/spec/models/exam_spec.rb": {
         "lines": [
           1,
@@ -95,7 +120,6 @@
       },
       "/src/models/init.rb": {
         "lines": [
-          1,
           1,
           1,
           1,
@@ -207,6 +231,6 @@
         ]
       }
     },
-    "timestamp": 1694468961
+    "timestamp": 1694470646
   }
 }

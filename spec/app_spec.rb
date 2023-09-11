@@ -1,18 +1,15 @@
 require 'rspec'
 require 'rack/test'
-require_relative '../../models/init.rb'
-require_relative 'server'
  # Asegúrate de que esta línea refleje la ubicación real de tu server.rb
 
 describe 'Server' do
   include Rack::Test::Methods
 
-  def App
+  def app
     App
   end
-
   it 'testing path /' do
-    get '/' 
+    get '/'
     expect(last_response.status).to eq(200)
   end
   
@@ -22,5 +19,3 @@ describe 'Server' do
   end
 end
 
-  # Agrega más pruebas para tus otras rutas y funcionalidades del servidor
-end
