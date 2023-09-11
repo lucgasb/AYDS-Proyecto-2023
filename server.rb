@@ -141,6 +141,7 @@ class App < Sinatra::Application
       @examen = Exam.find_by(id: params[:id])
       if @examen
         @examen.score = @examen.sumaPuntos
+        @examen.points_streak ++
         @examen.save
       end
     end
@@ -154,10 +155,12 @@ class App < Sinatra::Application
       if @examen
         if @examen.score == 0
           @examen.life = @examen.restaVida
+          @examen.points_streak = 0
           @examen.save
         else
           @examen.score = @examen.restaPuntos
           @examen.life = @examen.restaVida
+          @examen.points_streak = 0
           @examen.save
         end    
       end

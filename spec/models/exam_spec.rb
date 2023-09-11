@@ -1,6 +1,5 @@
-require_relative '../../models/init.rb'
 require 'sinatra/activerecord'
-
+require_relative '../../models/init.rb'
 describe 'Exam' do
     describe 'valid' do 
         describe 'when it creates a new exam' do
@@ -71,6 +70,37 @@ describe 'Exam' do
             it 'the score should be 10' do
                 e = Exam.new
                 e.score = e.restaPuntos
+                e.score = e.sumaPuntos
+                expect(e.score).to eq(10)
+            end
+        end
+
+        describe 'when the user answer correctly five questions' do
+            it 'should be in streak' do
+                e = Exam.new
+                e.points_streak = 5
+                expect(e.estaEnRacha).to eq(true)
+            end
+        end
+        describe 'when the user answer correctly five questions' do
+            it 'should be in streak and plus 20 points to the score' do
+                e = Exam.new
+                e.points_streak = 5
+                e.score = e.sumaPuntos
+                expect(e.score).to eq(20)
+            end
+        end
+        describe 'when the user answer correctly three questions' do
+            it 'should not be in streak' do
+                e = Exam.new
+                e.points_streak = 3
+                expect(e.estaEnRacha).to eq(false)
+            end
+        end
+        describe 'when the user answer correctly three questions' do
+            it 'should not be in streak and only plus 10 points to the score' do
+                e = Exam.new
+                e.points_streak = 3
                 e.score = e.sumaPuntos
                 expect(e.score).to eq(10)
             end

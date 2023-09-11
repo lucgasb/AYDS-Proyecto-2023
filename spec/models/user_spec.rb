@@ -1,6 +1,5 @@
-require_relative '../../models/init.rb'
 require 'sinatra/activerecord'
-
+require_relative '../../models/init.rb'
 describe 'User' do
   describe 'valid' do
     describe 'when there is not email' do

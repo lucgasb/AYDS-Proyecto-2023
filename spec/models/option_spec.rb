@@ -1,6 +1,5 @@
-require_relative '../../models/init.rb'
 require 'sinatra/activerecord'
-
+require_relative '../../models/init.rb'
 describe 'Option' do
   describe 'valid' do
     describe 'When a question has got three options' do
