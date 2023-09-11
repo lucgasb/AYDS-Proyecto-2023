@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_220728) do
     t.integer "life", default: 3
     t.integer "time", default: 30
     t.integer "answered_questions"
+    t.integer "points_streak"
   end
 
   create_table "options", force: :cascade do |t|
