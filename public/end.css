@@ -1,14 +1,47 @@
-
 body {
-  background-image: url("https://raw.githubusercontent.com/lucgasb/ADYS-Proyecto-2023/main/public/images/file_1280x720-2000-v3_1-_online-video-cutter.com__1.gif");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  font-family: 'poppins', sans-serif;
-  font-size: 30px;
-  line-height: 1.5;
-  color: #333;
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  text-align: center;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+h1, h2 {
+  color: #fff;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
 }

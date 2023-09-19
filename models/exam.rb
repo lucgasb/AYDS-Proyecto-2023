@@ -1,7 +1,7 @@
 class Exam < ActiveRecord::Base
     has_and_belongs_to_many :users
     has_and_belongs_to_many :questions
-
+    has_many :visiteds
     validates :score, numericality: { greater_than_or_equal_to: 0 }
 
     attribute :points_streak, :integer, default: 0

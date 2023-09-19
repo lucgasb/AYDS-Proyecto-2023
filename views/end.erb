@@ -1,10 +1,13 @@
 <html>
   <head>
     <title>Juego Terminado</title>
-    <link rel="stylesheet" type="text/css" href="<%= url('/end.css?v=2000') %>" />
+    <link rel="stylesheet" type="text/css" href="<%= url('/end.css?v=100000') %>" />
   </head>
   <body>
     <h1>Has terminado el juego!</h1>
-    <h2>No quedan mas preguntas por responder, has llegado al final</h2>
+    <h2>No quedan mas preguntas por responder, has llegado al final!</h2>
+    <form action="/" method="get">
+      <button type="submit" value="start">Volver al inicio</button>
+    </form>   
   </body>
 </html>

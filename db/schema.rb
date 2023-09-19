@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_11_220728) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_19_163750) do
   create_table "exams", force: :cascade do |t|
     t.integer "score", default: 0
     t.integer "life", default: 3
@@ -60,4 +60,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_220728) do
     t.index ["user_id"], name: "index_users_exams_on_user_id"
   end
 
+  create_table "visiteds", force: :cascade do |t|
+    t.integer "exam_id"
+    t.integer "idq"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exam_id"], name: "index_visiteds_on_exam_id"
+  end
+
+  add_foreign_key "visiteds", "exams"
 end

@@ -8,6 +8,7 @@ require_relative 'models/question'
 require_relative 'models/option'
 require_relative 'models/exam'
 require_relative 'models/practice'
+require_relative 'models/visited'
 
 class App < Sinatra::Application
   def initialize(app = nil)
@@ -101,19 +102,28 @@ class App < Sinatra::Application
 
   post '/exam/play' do
     @contador ||= 0
+    @contador2 ||= 0
     @preguntas = Question.all.shuffle
     @examen = Exam.find_or_create_by(id: params[:id])
-    @visited ||= []
-    @visited += [@examen.answered_questions]
-    if @visited.include?(@preguntas[@contador].id)
-      @preguntas = @preguntas - [@preguntas[@contador]] 
+    @visited = Visited.all
+    @visited.each do |v|
+      if v.exam_id == @examen.id
+        @contador2 += 1
+      end
+    end    
+    @preguntas.each do |q|
+      if Visited.find_by(idq: q.id, exam_id: @examen.id) != nil 
+        @preguntas = @preguntas - [q]
+      end
     end
-    @visited.push(@preguntas[@contador].id)
-    @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
-    @opciones = @opciones.shuffle
-    @examen.answered_questions = @visited
-    @examen.save
-    if !@examen.isValid
+    if @contador2 == 17
+      user = User.find_by(id: session[:user_id])
+      if user.total_score < @examen.score
+        user.total_score = @examen.score
+        user.save
+      end
+      erb :end
+    elsif !@examen.isValid
       user = User.find_by(id: session[:user_id])
       if user.total_score < @examen.score
         user.total_score = @examen.score
@@ -121,9 +131,10 @@ class App < Sinatra::Application
       end   
       erb :lost
     else
-      if Question.all.length == @visited.length
-        erb :end
-      end
+      @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
+      @opciones = @opciones.shuffle
+      Visited.create(idq: @preguntas[@contador].id, exam_id: @examen.id)
+      @examen.save
       erb :quiz, locals: { examen: @examen, contador: @contador }
     end
   end
@@ -141,7 +152,7 @@ class App < Sinatra::Application
       @examen = Exam.find_by(id: params[:id])
       if @examen
         @examen.score = @examen.sumaPuntos
-        @examen.points_streak ++
+        @examen.points_streak += 1
         @examen.save
       end
     end
