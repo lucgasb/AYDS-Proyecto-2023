@@ -11,12 +11,12 @@
         </div> 
         <% @opciones.each do |op| %>
           <% if op == @preguntas[@contador].option.correct %>
-            <form action="/practice/play/correct" method="get">
+            <form action="/practice/play/correct" method="post">
               <input type="hidden" name="id" value="<%= @practica.id %>">
               <button type="submit" value="<%= op %>"><%= op %></button>
             </form>
           <% else %>
-            <form action="/practice/play/incorrect" method="get">
+            <form action="/practice/play/incorrect" method="post">
               <input type="hidden" name="id" value="<%= @practica.id %>">
               <button type="submit" value="<%= op %>"><%= op %></button>
             </form>  

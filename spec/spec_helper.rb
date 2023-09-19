@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'simplecov'
+require_relative '../server.rb'
 
 SimpleCov.start
 ENV['RACK_ENV'] ||= 'test'

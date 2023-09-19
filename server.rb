@@ -54,7 +54,7 @@ class App < Sinatra::Application
       erb :index2
     else 
       redirect '/register'
-    end  
+    end
   end
   
   get '/register' do
@@ -70,17 +70,17 @@ class App < Sinatra::Application
       end       
   end
 
-  get '/exam' do
+  post '/exam' do
     erb :index3
   end
 
-  get '/practice' do
+  post '/practice' do
     erb :practica
   end
-  get '/practice/theoric' do
+  post '/practice/theoric' do
     erb :teorico 
   end  
-  get '/practice/play' do
+  post '/practice/play' do
     @preguntas = Question.all.shuffle
     @contador ||= 0
     if @contador < @preguntas.length
@@ -92,11 +92,11 @@ class App < Sinatra::Application
     erb :practicaQuiz
   end
 
-  get '/practice/play/correct' do
+  post '/practice/play/correct' do
     erb :practicaCorrecta
   end  
 
-  get '/practice/play/incorrect' do 
+  post '/practice/play/incorrect' do 
     erb :practicaIncorrecta
   end
 
@@ -146,7 +146,7 @@ class App < Sinatra::Application
     end
   end
 
-  get '/exam/play/correct' do
+  post '/exam/play/correct' do
     logger.info(params)
     if params[:id].present?
       @examen = Exam.find_by(id: params[:id])
@@ -160,7 +160,7 @@ class App < Sinatra::Application
     erb :respuestaCorrecta, locals: { examen: @examen }
   end
   
-  get '/exam/play/incorrect' do
+  post '/exam/play/incorrect' do
     if params[:id].present?
       @examen = Exam.find_by(id: params[:id])
       if @examen
