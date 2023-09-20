@@ -9,6 +9,39 @@
           null
         ]
       },
+      "/src/spec/app_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          3,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/src/spec/models/exam_spec.rb": {
         "lines": [
           1,
@@ -128,66 +161,9 @@
           1,
           1,
           1,
+          1,
+          null,
           1
-        ]
-      },
-      "/src/models/user.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "/src/models/exam.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          2,
-          null,
-          1,
-          5,
-          1,
-          null,
-          4,
-          null,
-          null,
-          null,
-          1,
-          3,
-          1,
-          null,
-          2,
-          null,
-          null,
-          1,
-          2,
-          null,
-          1,
-          7,
-          null,
-          null
-        ]
-      },
-      "/src/models/option.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null
         ]
       },
       "/src/spec/models/option_spec.rb": {
@@ -291,8 +267,38 @@
           null,
           null
         ]
+      },
+      "/src/spec/models/visited_spec.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1694474238
+    "timestamp": 1695173145
   }
 }

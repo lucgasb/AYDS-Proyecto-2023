@@ -101,6 +101,8 @@ class App < Sinatra::Application
   end
 
   post '/exam/play' do
+    user = User.find_by(id: session[:user_id])
+    @username = user.username.to_s
     @contador ||= 0
     @contador2 ||= 0
     @preguntas = Question.all.shuffle
@@ -139,13 +141,6 @@ class App < Sinatra::Application
     end
   end
   
-  get '/exam/play' do
-    @examen = Exam.find_by(id: params[:id])
-    if @examen != nil
-      erb :quiz, locals: {examen: @examen, contador: @contador}
-    end
-  end
-
   post '/exam/play/correct' do
     logger.info(params)
     if params[:id].present?
