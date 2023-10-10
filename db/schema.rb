@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_19_163750) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_10_143922) do
   create_table "exams", force: :cascade do |t|
     t.integer "score", default: 0
     t.integer "life", default: 3
@@ -44,6 +44,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_163750) do
     t.integer "exam_id"
     t.index ["exam_id"], name: "index_questions_exams_on_exam_id"
     t.index ["question_id"], name: "index_questions_exams_on_question_id"
+  end
+
+  create_table "themes", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|
