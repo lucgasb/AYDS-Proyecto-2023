@@ -1,14 +1,28 @@
 <html>
-  <head>
+<head>
     <title>Modo Practica</title>
-    <link rel="stylesheet" type="text/css" href="<%= url('/practica.css?v=3000') %>">
-  </head>
-  <form action="/practice/theoric" method="post">
-    <h1 style="color: white;">Bienvenido al Modo de Práctica</h1>
-    <button type="submit" value="pdf">Ingresa a la teoría!</button>
-  </form>
-  <form action="/practice/play" method="post">
-    <h1 style="color: white;">Ya estoy preparado para practicar</h1>
-    <button type="submit" value="practice">Comienza el Modo Práctica!</button>
-  </form>
+    <link rel="stylesheet" type="text/css" href="<%= url('/practica.css?v=50000000') %>">
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: white;">Bienvenido al Modo Práctica</h1>
+        <form action="/practice/theoric" method="post">
+            <button type="submit" value="pdf">Ingresa a la teoría!</button>
+        </form>
+    </div>
+
+    <div class="botones-container">
+        <h1 style="color: white;">Ya estoy preparado para practicar</h1>
+        <h2 style="color: white;">Selecciona un Tema para practicar</h2>
+        <form action="/practice/signal" method="post">
+            <button type="submit" value="practice">Señales</button>
+        </form>
+        <form action="/practice/velocity" method="post">
+            <button type="submit" value="practice">Velocidad</button>
+        </form>
+        <form action="/practice/safety-road" method="post">
+            <button type="submit" value="practice">Seguridad Vial</button>
+        </form>
+    </div>
+</body>
 </html>

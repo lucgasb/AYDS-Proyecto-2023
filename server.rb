@@ -79,7 +79,20 @@ class App < Sinatra::Application
   end
   post '/practice/theoric' do
     erb :teorico 
-  end  
+  end
+  
+  post '/practice/signal' do
+    erb :signal
+  end
+
+  post '/practice/velocity' do
+    erb :velocity
+  end
+
+  post '/practice/safety-road' do 
+    erb :safety
+  end
+  
   post '/practice/play' do
     @preguntas = Question.all.shuffle
     @contador ||= 0
