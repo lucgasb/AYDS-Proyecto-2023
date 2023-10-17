@@ -9,7 +9,6 @@ require_relative 'models/option'
 require_relative 'models/exam'
 require_relative 'models/practice'
 require_relative 'models/visited'
-require_relative 'models/theme'
 
 class App < Sinatra::Application
   def initialize(app = nil)
@@ -83,7 +82,15 @@ class App < Sinatra::Application
   end
   
   post '/practice/signal' do
+    @signals = Question.all.where(practice_id: 5)
+    @count ||= 0
+    if @count < @signals.length
+      @count += 1
+    end
+    @options = [@signals[@count].option.option, @signals[@count].option.option2, @signals[@count].option.correct]
+    @options = @options.shuffle
     erb :signal
+    
   end
 
   post '/practice/velocity' do
@@ -106,11 +113,11 @@ class App < Sinatra::Application
     erb :practicaQuiz
   end
 
-  post '/practice/play/correct' do
+  post '/practice/correct' do
     erb :practicaCorrecta
   end  
 
-  post '/practice/play/incorrect' do 
+  post '/practice/incorrect' do 
     erb :practicaIncorrecta
   end
 

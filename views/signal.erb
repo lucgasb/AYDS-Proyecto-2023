@@ -1,3 +1,26 @@
 <html>
-<h1>Falta implementar</h1>
+    <head>
+        <title>Modo Practica: Señales - En juego</title>
+        <link rel="stylesheet" type="text/css" href="<%= url('/quiz.css?v=600') %>">
+    </head>
+    <body>
+        <h1>Pregunta:</h1>
+        <h1><p><%= @signals[@count].question %></p></h1>
+        <div class="center-image">
+          <img src="<%= @signals[@contador].image_url %>">
+        </div> 
+        <% @opciones.each do |op| %>
+          <% if op == @signals[@count].option.correct %>
+            <form action="/practice/correct" method="post">
+              <input type="hidden" name="id" value="<%= @practica.id %>">
+              <button type="submit" value="<%= op %>"><%= op %></button>
+            </form>
+          <% else %>
+            <form action="/practice/incorrect" method="post">
+              <input type="hidden" name="id" value="<%= @practica.id %>">
+              <button type="submit" value="<%= op %>"><%= op %></button>
+            </form>
+          <% end %>    
+        <% end %>
+    </body>
 </html>
