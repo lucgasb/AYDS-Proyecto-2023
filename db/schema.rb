@@ -10,13 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_10_143922) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_17_142806) do
   create_table "exams", force: :cascade do |t|
     t.integer "score", default: 0
     t.integer "life", default: 3
     t.integer "time", default: 30
     t.integer "answered_questions"
     t.integer "points_streak"
+  end
+
+  create_table "exams_questions", id: false, force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "exam_id"
+    t.index ["exam_id"], name: "index_exams_questions_on_exam_id"
+    t.index ["question_id"], name: "index_exams_questions_on_question_id"
+  end
+
+  create_table "exams_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "exam_id"
+    t.index ["exam_id"], name: "index_exams_users_on_exam_id"
+    t.index ["user_id"], name: "index_exams_users_on_user_id"
   end
 
   create_table "options", force: :cascade do |t|
@@ -39,13 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_10_143922) do
     t.index ["practice_id"], name: "index_questions_on_practice_id", unique: true
   end
 
-  create_table "questions_exams", id: false, force: :cascade do |t|
-    t.integer "question_id"
-    t.integer "exam_id"
-    t.index ["exam_id"], name: "index_questions_exams_on_exam_id"
-    t.index ["question_id"], name: "index_questions_exams_on_question_id"
-  end
-
   create_table "themes", force: :cascade do |t|
     t.string "name"
   end
@@ -55,13 +62,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_10_143922) do
     t.string "password"
     t.integer "total_score", default: 0
     t.string "username"
-  end
-
-  create_table "users_exams", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "exam_id"
-    t.index ["exam_id"], name: "index_users_exams_on_exam_id"
-    t.index ["user_id"], name: "index_users_exams_on_user_id"
   end
 
   create_table "visiteds", force: :cascade do |t|
