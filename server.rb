@@ -80,12 +80,25 @@ class App < Sinatra::Application
   post '/practice/theoric' do
     erb :teorico 
   end
+
+  post '/practice/play' do
+    @preguntas = Question.all.shuffle
+    @contador ||= 0
+    if @contador < @preguntas.length
+      @contador += 1
+      @practica = Practice.find_or_create_by(id: params[:id])
+    end
+    @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
+    @opciones = @opciones.shuffle
+    erb :practicaQuiz
+  end
   
-  post '/practice/signal' do
-    @signals = Question.all.where(practice_id: 5)
+  get '/practice/signal' do
+    @signals = Question.where(theme: 1).shuffle
     @count ||= 0
     if @count < @signals.length
       @count += 1
+      @practica = Practice.find_or_create_by(id: params[:id])
     end
     @options = [@signals[@count].option.option, @signals[@count].option.option2, @signals[@count].option.correct]
     @options = @options.shuffle
@@ -99,18 +112,6 @@ class App < Sinatra::Application
 
   post '/practice/safety-road' do 
     erb :safety
-  end
-  
-  post '/practice/play' do
-    @preguntas = Question.all.shuffle
-    @contador ||= 0
-    if @contador < @preguntas.length
-      @contador += 1
-      @practica = Practice.find_or_create_by(id: params[:id])
-    end
-    @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
-    @opciones = @opciones.shuffle
-    erb :practicaQuiz
   end
 
   post '/practice/correct' do

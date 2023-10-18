@@ -7,7 +7,7 @@
         <h1>Pregunta:</h1>
         <h1><p><%= @signals[@count].question %></p></h1>
         <div class="center-image">
-          <img src="<%= @signals[@contador].image_url %>">
+          <img src="<%= @signals[@count].image_url %>">
         </div> 
         <% @opciones.each do |op| %>
           <% if op == @signals[@count].option.correct %>

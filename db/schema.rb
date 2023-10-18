@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_17_142806) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_18_204842) do
   create_table "exams", force: :cascade do |t|
     t.integer "score", default: 0
     t.integer "life", default: 3
@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_17_142806) do
     t.integer "option_id"
     t.integer "practice_id"
     t.string "image_url", default: ""
+    t.integer "theme"
     t.index ["option_id"], name: "index_questions_on_option_id", unique: true
     t.index ["practice_id"], name: "index_questions_on_practice_id", unique: true
   end
