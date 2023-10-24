@@ -1,16 +1,16 @@
 <html>
     <head>
-        <title>Modo Practica: Seguridad Vial - En juego</title>
+        <title>Modo Practica: Definición - En juego</title>
         <link rel="stylesheet" type="text/css" href="<%= url('/quiz.css?v=600') %>">
     </head>
     <body>
         <h1>Pregunta:</h1>
-        <h1><p><%= @safety[@count].question %></p></h1>
+        <h1><p><%= @definition[@count].question %></p></h1>
         <div class="center-image">
-          <img src="<%= @safety[@count].image_url %>">
+          <img src="<%= @definition[@count].image_url %>">
         </div> 
         <% @options.each do |op| %>
-          <% if op == @safety[@count].option.correct %>
+          <% if op == @definition[@count].option.correct %>
             <form action="/practice/correct" method="post">
               <input type="hidden" name="id" value="<%= @practica.id %>">
               <button type="submit" value="<%= op %>"><%= op %></button>

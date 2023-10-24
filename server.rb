@@ -106,11 +106,27 @@ class App < Sinatra::Application
     
   end
 
-  post '/practice/velocity' do
-    erb :velocity
+  post '/practice/definition' do
+    @definition = Question.where(theme: 2).shuffle
+    @count ||= 0
+    if @count < @definition.length
+      @count += 1
+      @practica = Practice.find_or_create_by(id: params[:id])
+    end
+    @options = [@definition[@count].option.option, @definition[@count].option.option2, @definition[@count].option.correct]
+    @options = @options.shuffle
+    erb :definition
   end
 
   post '/practice/safety-road' do 
+    @safety = Question.where(theme: 3).shuffle
+    @count ||= 0
+    if @count < @safety.length
+      @count += 1
+      @practica = Practice.find_or_create_by(id: params[:id])
+    end
+    @options = [@safety[@count].option.option, @safety[@count].option.option2, @safety[@count].option.correct]
+    @options = @options.shuffle
     erb :safety
   end
 

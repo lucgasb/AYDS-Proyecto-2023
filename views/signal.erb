@@ -9,7 +9,7 @@
         <div class="center-image">
           <img src="<%= @signals[@count].image_url %>">
         </div> 
-        <% @opciones.each do |op| %>
+        <% @options.each do |op| %>
           <% if op == @signals[@count].option.correct %>
             <form action="/practice/correct" method="post">
               <input type="hidden" name="id" value="<%= @practica.id %>">
