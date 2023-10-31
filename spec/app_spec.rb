@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rack/test'
 require_relative '../server.rb'
 RSpec.describe 'Sinatra App' do
@@ -5,15 +7,15 @@ RSpec.describe 'Sinatra App' do
 
   def app
     # incluir el nombre de la clase correspondiente a la Application definida en el server.rb
-    
+
     App
   end
 
   it 'probando del sign up' do
-    get '/' # Accede a la ruta '/signup' 
-    expect(last_response.status).to eq(200) # Verifica el código de respuesta HTTP
+    get '/' # Accede a la ruta '/signup'
+    expect(last_response.status).to eq(200) # Verifica el codigo de respuesta HTTP
   end
-  
+
   it 'probando /register' do
     get '/register'
     expect(last_response.status).to eq(200)

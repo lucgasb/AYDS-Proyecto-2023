@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra/activerecord'
 require_relative '../../models/init.rb'
 describe 'User' do
@@ -8,7 +10,7 @@ describe 'User' do
         expect(u.valid?).to eq(false)
       end
     end
-  
+
     describe 'when there is not username' do
       it 'should be invalid' do
         u = User.new(email: 'maria@example.com')
@@ -36,14 +38,14 @@ describe 'User' do
         expect(u.valid?).to eq(false)
       end
     end
-    
+
     describe 'when the email has not got a @' do
       it 'should be invalid' do
         u = User.new(username: 'luis_cabral', email: 'bali', password: 'password')
         expect(u.valid?).to eq(false)
       end
     end
-    
+
     describe 'when there is not a password' do
       it 'should be invalid' do
         u = User.new(username: 'luis_cabral', email: 'luisito@example.com')
@@ -58,4 +60,3 @@ describe 'User' do
     end
   end
 end
-

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'sinatra/base'
 require 'bundler/setup'
 require 'sinatra/reloader' if Sinatra::Base.environment == :development
-require "sinatra/activerecord"
+require 'sinatra/activerecord'
 require 'sinatra/contrib'
 require_relative 'models/user'
 require_relative 'models/question'
@@ -11,10 +13,10 @@ require_relative 'models/practice'
 require_relative 'models/visited'
 
 class App < Sinatra::Application
-  def initialize(app = nil)
+  def initialize(_app = nil)
     super()
   end
-  
+
   configure do
     enable :sessions
   end
@@ -24,7 +26,7 @@ class App < Sinatra::Application
   end
 
   set :root,  File.dirname(__FILE__)
-  set :views, Proc.new { File.join(root, 'views') }
+  set :views, (proc { File.join(root, 'views') })
 
   configure :production, :development do
     enable :logging
@@ -48,26 +50,26 @@ class App < Sinatra::Application
 
   post '/' do
     user = User.find_by(username: params[:username], password: params[:password])
-    if user != nil
+    if !user.nil?
       session[:user_id] = user.id.to_s
       @user = User.find_by(id: session[:user_id])
       erb :index2
-    else 
+    else
       redirect '/register'
     end
   end
-  
+
   get '/register' do
     erb :register
   end
-  
+
   post '/register' do
-      if params[:password] == params[:password2]
-        user = User.create(username: params[:username],email: params[:email],password: params[:password])
-        redirect '/'
-      else
-        redirect '/register'
-      end       
+    if params[:password] == params[:password2]
+      user = User.create(username: params[:username], email: params[:email], password: params[:password])
+      redirect '/'
+    else
+      redirect '/register'
+    end
   end
 
   post '/exam' do
@@ -78,7 +80,7 @@ class App < Sinatra::Application
     erb :practica
   end
   post '/practice/theoric' do
-    erb :teorico 
+    erb :teorico
   end
 
   post '/practice/play' do
@@ -92,7 +94,7 @@ class App < Sinatra::Application
     @opciones = @opciones.shuffle
     erb :practicaQuiz
   end
-  
+
   get '/practice/signal' do
     @signals = Question.where(theme: 1).shuffle
     @count ||= 0
@@ -103,7 +105,6 @@ class App < Sinatra::Application
     @options = [@signals[@count].option.option, @signals[@count].option.option2, @signals[@count].option.correct]
     @options = @options.shuffle
     erb :signal
-    
   end
 
   post '/practice/definition' do
@@ -118,7 +119,7 @@ class App < Sinatra::Application
     erb :definition
   end
 
-  post '/practice/safety-road' do 
+  post '/practice/safety-road' do
     @safety = Question.where(theme: 3).shuffle
     @count ||= 0
     if @count < @safety.length
@@ -132,9 +133,9 @@ class App < Sinatra::Application
 
   post '/practice/correct' do
     erb :practicaCorrecta
-  end  
+  end
 
-  post '/practice/incorrect' do 
+  post '/practice/incorrect' do
     erb :practicaIncorrecta
   end
 
@@ -147,14 +148,10 @@ class App < Sinatra::Application
     @examen = Exam.find_or_create_by(id: params[:id])
     @visited = Visited.all
     @visited.each do |v|
-      if v.exam_id == @examen.id
-        @contador2 += 1
-      end
-    end    
+      @contador2 += 1 if v.exam_id == @examen.id
+    end
     @preguntas.each do |q|
-      if Visited.find_by(idq: q.id, exam_id: @examen.id) != nil 
-        @preguntas = @preguntas - [q]
-      end
+      @preguntas -= [q] unless Visited.find_by(idq: q.id, exam_id: @examen.id).nil?
     end
     if @contador2 == 17
       user = User.find_by(id: session[:user_id])
@@ -163,12 +160,12 @@ class App < Sinatra::Application
         user.save
       end
       erb :end
-    elsif !@examen.isValid
+    elsif !@examen.valid?
       user = User.find_by(id: session[:user_id])
       if user.total_score < @examen.score
         user.total_score = @examen.score
         user.save
-      end   
+      end
       erb :lost
     else
       @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
@@ -178,13 +175,13 @@ class App < Sinatra::Application
       erb :quiz, locals: { examen: @examen, contador: @contador }
     end
   end
-  
+
   post '/exam/play/correct' do
     logger.info(params)
     if params[:id].present?
       @examen = Exam.find_by(id: params[:id])
       if @examen
-        @examen.score = @examen.sumaPuntos
+        @examen.score = @examen.suma_puntos
         @examen.points_streak += 1
         @examen.save
       end
@@ -192,23 +189,19 @@ class App < Sinatra::Application
 
     erb :respuestaCorrecta, locals: { examen: @examen }
   end
-  
+
   post '/exam/play/incorrect' do
     if params[:id].present?
       @examen = Exam.find_by(id: params[:id])
       if @examen
-        if @examen.score == 0
-          @examen.life = @examen.restaVida
-          @examen.points_streak = 0
-          @examen.save
-        else
-          @examen.score = @examen.restaPuntos
-          @examen.life = @examen.restaVida
-          @examen.points_streak = 0
-          @examen.save
-        end    
+        if !@examen.score.zero?
+          @examen.score = @examen.resta_puntos
+        end
+        @examen.life = @examen.resta_vida
+        @examen.points_streak = 0
+        @examen.save
       end
-    erb :respuestaIncorrecta, locals: { examen: @examen }
+      erb :respuestaIncorrecta, locals: { examen: @examen }
     end
   end
 end

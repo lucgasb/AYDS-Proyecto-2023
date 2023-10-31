@@ -1,33 +1,36 @@
 class Exam < ActiveRecord::Base
-    has_and_belongs_to_many :users
-    has_and_belongs_to_many :questions
-    has_many :visiteds
-    validates :score, numericality: { greater_than_or_equal_to: 0 }
+  has_and_belongs_to_many :users
+  has_and_belongs_to_many :questions
+  has_many :visiteds
+  validates :score, numericality: { greater_than_or_equal_to: 0 }
 
-    attribute :points_streak, :integer, default: 0
+  attribute :points_streak, :integer, default: 0
 
-    def isValid
-        return life > 0
+  def valid?
+    life.positive?
+  end
+
+  def suma_puntos
+    if estaEnRacha
+      score + 20
+    else
+      score + 10
     end
-    def sumaPuntos
-        if estaEnRacha
-            return score + 20
-        else
-            return score + 10
-        end
-        
+  end
+
+  def resta_puntos
+    if score.zero?
+      0
+    else
+      score - 5
     end
-    def restaPuntos
-        if score == 0
-            return 0
-        else    
-            return score - 5
-        end    
-    end 
-    def restaVida
-        return life - 1
-    end
-    def estaEnRacha
-        return points_streak >= 5
-    end
+  end
+
+  def resta_vida
+    life - 1
+  end
+
+  def esta_en_racha
+    points_streak >= 5
+  end
 end

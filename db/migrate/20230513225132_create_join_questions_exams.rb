@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateJoinQuestionsExams < ActiveRecord::Migration[7.0]
   def change
     create_table :questions_exams, id: false do |t|

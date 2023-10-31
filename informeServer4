@@ -1,0 +1,43 @@
+Inspecting 1 file
+W
+
+Offenses:
+
+server.rb:15:1: C: Metrics/ClassLength: Class has too many lines. [172/100]
+class App < Sinatra::Application ...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+server.rb:15:1: C: Style/Documentation: Missing top-level class documentation comment.
+class App < Sinatra::Application
+^^^^^
+server.rb:29:3: W: Lint/AmbiguousBlockAssociation: Parenthesize the param proc { File.join(root, 'views') } to make sure that the block will be associated with the proc method call.
+  set :views, proc { File.join(root, 'views') }
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+server.rb:68:7: W: Lint/UselessAssignment: Useless assignment to variable - user.
+      user = User.create(username: params[:username], email: params[:email], password: params[:password])
+      ^^^^
+server.rb:93:121: C: Layout/LineLength: Line is too long. [129/120]
+    @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
+                                                                                                                        ^^^^^^^^^
+server.rb:117:121: C: Layout/LineLength: Line is too long. [122/120]
+    @options = [@definition[@count].option.option, @definition[@count].option.option2, @definition[@count].option.correct]
+                                                                                                                        ^^
+server.rb:142:3: C: Metrics/BlockLength: Block has too many lines. [34/25]
+  post '/exam/play' do ...
+  ^^^^^^^^^^^^^^^^^^^^
+server.rb:154:7: C: Style/NegatedIf: Favor unless over if for negative conditions.
+      @preguntas -= [q] if !(Visited.find_by(idq: q.id, exam_id: @examen.id)).nil?
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+server.rb:154:29: C: Style/RedundantParentheses: Don't use parentheses around a method call.
+      @preguntas -= [q] if !(Visited.find_by(idq: q.id, exam_id: @examen.id)).nil?
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+server.rb:171:121: C: Layout/LineLength: Line is too long. [131/120]
+      @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
+                                                                                                                        ^^^^^^^^^^^
+server.rb:199:11: C: Style/IdenticalConditionalBranches: Move @examen.points_streak = 0 out of the conditional.
+          @examen.points_streak = 0
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+server.rb:203:11: C: Style/IdenticalConditionalBranches: Move @examen.points_streak = 0 out of the conditional.
+          @examen.points_streak = 0
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+1 file inspected, 12 offenses detected, 5 offenses auto-correctable

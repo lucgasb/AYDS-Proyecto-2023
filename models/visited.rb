@@ -1,15 +1,17 @@
-class Visited < ActiveRecord::Base
-    belongs_to :exams
+# frozen_string_literal: true
 
-    def correct 
-      if idq
-        if exam_id
-          return true
-        else
-          return false
-        end 
+class Visited < ActiveRecord::Base
+  belongs_to :exams
+
+  def correct
+    if idq
+      if exam_id
+        true
       else
-        return false
+        false
       end
-    end      
+    else
+      false
+    end
+  end
 end

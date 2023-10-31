@@ -1,0 +1,119 @@
+Inspecting 1 file
+W
+
+Offenses:
+
+server.rb:1:1: C: Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+require 'sinatra/base'
+^
+server.rb:4:9: C: Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require "sinatra/activerecord"
+        ^^^^^^^^^^^^^^^^^^^^^^
+server.rb:13:1: C: Metrics/ClassLength: Class has too many lines. [177/100]
+class App < Sinatra::Application ...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+server.rb:13:1: C: Style/Documentation: Missing top-level class documentation comment.
+class App < Sinatra::Application
+^^^^^
+server.rb:14:18: W: Lint/UnusedMethodArgument: Unused method argument - app. If it's necessary, use _ or _app as an argument name to indicate that it won't be used. You can also write as initialize(*) if you want the method to accept any arguments but don't care about them.
+  def initialize(app = nil)
+                 ^^^
+server.rb:17:1: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+server.rb:27:3: W: Lint/AmbiguousBlockAssociation: Parenthesize the param Proc.new { File.join(root, 'views') } to make sure that the block will be associated with the Proc.new method call.
+  set :views, Proc.new { File.join(root, 'views') }
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+server.rb:27:15: C: Style/Proc: Use proc instead of Proc.new.
+  set :views, Proc.new { File.join(root, 'views') }
+              ^^^^^^^^
+server.rb:51:13: C: Style/NonNilCheck: Prefer !expression.nil? over expression != nil.
+    if user != nil
+            ^^
+server.rb:55:9: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+    else 
+        ^
+server.rb:59:1: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+server.rb:63:1: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+server.rb:65:3: C: Layout/IndentationWidth: Use 2 (not 4) spaces for indentation.
+      if params[:password] == params[:password2]
+  ^^^^
+server.rb:66:9: W: Lint/UselessAssignment: Useless assignment to variable - user.
+        user = User.create(username: params[:username],email: params[:email],password: params[:password])
+        ^^^^
+server.rb:66:55: C: Layout/SpaceAfterComma: Space missing after comma.
+        user = User.create(username: params[:username],email: params[:email],password: params[:password])
+                                                      ^
+server.rb:66:77: C: Layout/SpaceAfterComma: Space missing after comma.
+        user = User.create(username: params[:username],email: params[:email],password: params[:password])
+                                                                            ^
+server.rb:70:10: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+      end       
+         ^^^^^^^
+server.rb:81:17: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+    erb :teorico 
+                ^
+server.rb:91:121: C: Layout/LineLength: Line is too long. [129/120]
+    @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
+                                                                                                                        ^^^^^^^^^
+server.rb:95:1: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+server.rb:106:1: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+server.rb:116:121: C: Layout/LineLength: Line is too long. [122/120]
+    @options = [@definition[@count].option.option, @definition[@count].option.option2, @definition[@count].option.correct]
+                                                                                                                        ^^
+server.rb:121:34: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+  post '/practice/safety-road' do 
+                                 ^
+server.rb:135:6: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+  end  
+     ^^
+server.rb:137:32: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+  post '/practice/incorrect' do 
+                               ^
+server.rb:141:3: C: Metrics/BlockLength: Block has too many lines. [38/25]
+  post '/exam/play' do ...
+  ^^^^^^^^^^^^^^^^^^^^
+server.rb:150:7: C: Style/IfUnlessModifier: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+      if v.exam_id == @examen.id
+      ^^
+server.rb:153:8: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+    end    
+       ^^^^
+server.rb:155:7: C: Style/IfUnlessModifier: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+      if Visited.find_by(idq: q.id, exam_id: @examen.id) != nil 
+      ^^
+server.rb:155:58: C: Style/NonNilCheck: Prefer !expression.nil? over expression != nil.
+      if Visited.find_by(idq: q.id, exam_id: @examen.id) != nil 
+                                                         ^^
+server.rb:155:64: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+      if Visited.find_by(idq: q.id, exam_id: @examen.id) != nil 
+                                                               ^
+server.rb:156:9: C: Style/SelfAssignment: Use self-assignment shorthand -=.
+        @preguntas = @preguntas - [q]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+server.rb:171:10: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+      end   
+         ^^^
+server.rb:174:121: C: Layout/LineLength: Line is too long. [131/120]
+      @opciones = [@preguntas[@contador].option.option, @preguntas[@contador].option.option2, @preguntas[@contador].option.correct]
+                                                                                                                        ^^^^^^^^^^^
+server.rb:181:1: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+server.rb:195:1: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+server.rb:200:12: C: Style/NumericPredicate: Use @examen.score.zero? instead of @examen.score == 0.
+        if @examen.score == 0
+           ^^^^^^^^^^^^^^^^^^
+server.rb:203:11: C: Style/IdenticalConditionalBranches: Move @examen.save out of the conditional.
+          @examen.save
+          ^^^^^^^^^^^^
+server.rb:208:11: C: Style/IdenticalConditionalBranches: Move @examen.save out of the conditional.
+          @examen.save
+          ^^^^^^^^^^^^
+server.rb:209:12: C: Layout/TrailingWhitespace: Trailing whitespace detected.
+        end    
+           ^^^^
+server.rb:211:5: C: Layout/IndentationConsistency: Inconsistent indentation detected.
+    erb :respuestaIncorrecta, locals: { examen: @examen }
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+server.rb:214:4: C: Layout/TrailingEmptyLines: Final newline missing.
+end
+   
+
+1 file inspected, 42 offenses detected, 35 offenses auto-correctable
