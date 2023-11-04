@@ -194,9 +194,7 @@ class App < Sinatra::Application
     if params[:id].present?
       @examen = Exam.find_by(id: params[:id])
       if @examen
-        if !@examen.score.zero?
-          @examen.score = @examen.resta_puntos
-        end
+        @examen.score = @examen.resta_puntos unless @examen.score.zero?
         @examen.life = @examen.resta_vida
         @examen.points_streak = 0
         @examen.save
