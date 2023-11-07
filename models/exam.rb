@@ -8,12 +8,12 @@ class Exam < ActiveRecord::Base
 
   attribute :points_streak, :integer, default: 0
 
-  def valid?
-    life.positive?
+  def self.valid(examen)
+    examen.life.positive?
   end
 
   def suma_puntos
-    if estaEnRacha
+    if esta_en_racha
       score + 20
     else
       score + 10
