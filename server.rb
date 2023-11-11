@@ -51,7 +51,5 @@ class App < Sinatra::Application
       logger.info 'Reloaded!!!'
     end
   end
-  
-    
 
 end

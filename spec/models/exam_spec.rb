@@ -15,7 +15,7 @@ describe 'Exam' do
       it 'the exam should be finish' do
         e = Exam.new
         e.life = 0
-        expect(e.valid?).to eq(false)
+        expect(Exam.valid(e)).to eq(false)
       end
     end
     describe 'when the life is greater than 0' do
